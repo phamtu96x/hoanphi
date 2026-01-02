@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/DN.png">
+    <title>Hướng Dẫn Exness - Trading Insight</title>
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* =================================================================
+           CSS RIÊNG CHO EXNESS (VÀNG / ĐEN)
+           ================================================================= */
+        
+         :root {
+            --brand-navy: #0a192f;
+            --brand-orange: #fd7e14;
+            /* Màu theo nhận diện Exness */
+            --exness-yellow: #FFCC00;
+            /* Màu vàng thương hiệu */
+            --exness-black: #2d2d2d;
+            /* Màu đen xám */
+        }
+        
+        body {
+            background-color: #FAFAFA;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        /* Tiêu đề trang */
+        
+        .guide-title {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-weight: 800;
+            font-size: 2.5rem;
+            color: var(--brand-navy);
+        }
+        
+        .guide-title span {
+            color: #DBAF00;
+            text-shadow: 1px 1px 0 #000;
+        }
+        /* Vàng đậm chút cho dễ đọc */
+        
+        .guide-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+        }
+        /* Card Style */
+        
+        .guide-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #EAEAEA;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-bottom: 30px;
+            position: relative;
+            height: 100%;
+        }
+        /* Badge HP */
+        
+        .hp-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        /* Header Card */
+        
+        .card-header-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* Step Circle */
+        
+        .step-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            margin-right: 8px;
+            font-size: 13px;
+        }
+        /* Copy Box */
+        
+        .copy-box {
+            background-color: #F3F5F7;
+            border-radius: 8px;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0 20px 0;
+            border: 1px solid #E1E4E8;
+        }
+        
+        .copy-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .copy-icon {
+            cursor: pointer;
+            color: #999;
+            transition: 0.2s;
+        }
+        /* Benefit Box */
+        
+        .benefit-box {
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .benefit-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        .benefit-list li {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        /* Warning Box */
+        
+        .warning-box {
+            background-color: #FFF9E6;
+            border: 1px solid #FEEBC8;
+            color: #975A16;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        /* Buttons */
+        
+        .action-btns {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        
+        .btn-zalo {
+            background: #118144;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .btn-video {
+            background: white;
+            color: #008080;
+            border: 1px solid #008080;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        /* --- THEME COLORS --- */
+        /* THEME 1: YELLOW (New Account) */
+        
+        .theme-yellow {
+            border-top: 4px solid var(--exness-yellow);
+        }
+        
+        .theme-yellow .card-header-title {
+            color: #d4a000;
+        }
+        /* Vàng đậm hơn chút cho chữ dễ đọc */
+        
+        .theme-yellow .step-circle {
+            background-color: var(--exness-yellow);
+            color: black;
+        }
+        
+        .theme-yellow .copy-text {
+            color: #d4a000;
+        }
+        /* Box ưu đãi màu vàng nhạt */
+        
+        .theme-yellow .benefit-box {
+            background-color: #FFFBE6;
+            border: 1px solid #FFE58F;
+        }
+        
+        .theme-yellow .benefit-title,
+        .theme-yellow .check-icon {
+            color: #D48806;
+        }
+        
+        .theme-yellow .hp-badge {
+            background-color: var(--exness-yellow);
+            color: black;
+        }
+        /* THEME 2: BLACK (Change Partner) */
+        
+        .theme-black {
+            border-top: 4px solid var(--exness-black);
+        }
+        
+        .theme-black .card-header-title {
+            color: var(--exness-black);
+        }
+        
+        .theme-black .step-circle {
+            background-color: var(--exness-black);
+        }
+        
+        .theme-black .copy-text {
+            color: var(--exness-black);
+        }
+        /* Box ưu đãi màu xám xanh nhạt */
+        
+        .theme-black .benefit-box {
+            background-color: #F0F2F5;
+            border: 1px solid #D9D9D9;
+        }
+        
+        .theme-black .benefit-title,
+        .theme-black .check-icon {
+            color: var(--exness-black);
+        }
+        
+        .theme-black .hp-badge {
+            background-color: var(--exness-black);
+        }
+        
+        main {
+            flex: 1;
+            padding-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <div class="container">
+
+            <h1 class="guide-title">Hướng Dẫn Hoàn Phí Sàn <span>EXNESS</span></h1>
+            <p class="guide-subtitle">Thực hiện theo các bước đơn giản dưới đây để bắt đầu tiết kiệm chi phí giao dịch!</p>
+
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-lg-5 col-md-6">
+                    <div class="guide-card theme-yellow">
+                        <!-- <div class="hp-badge">HP</div> -->
+
+                        <div class="card-header-title">
+                            <i class="bi bi-person-plus-fill"></i> Trường Hợp 1: MỞ TÀI KHOẢN MỚI
+                        </div>
+                        <p class="text-muted small">Hướng dẫn mở tài khoản Exness qua Trading Insight để nhận hoàn 50% phí spread/commission.</p>
+
+                        <div class="mb-2 fw-bold text-dark">
+                            <span class="step-circle">1</span> Truy cập link đăng ký bên dưới và nhập mã đối tác:
+                        </div>
+                        <div class="copy-box">
+                            <span class="copy-text">z95z0g4oje</span>
+                            <i class="bi bi-copy copy-icon" onclick="copyCode('z95z0g4oje')"></i>
+                        </div>
+                        <div class="text-center mb-3">
+                            <a href="https://one.exnessonelink.com/a/z95z0g4oje" target="_blank" class="btn btn-warning fw-bold w-100">Mở Tài Khoản Ngay</a>
+                        </div>
+
+                        <div class="mb-2 fw-bold text-dark">
+                            <span class="step-circle">2</span> Xác minh danh tính (KYC) và Địa chỉ.
+                        </div>
+                        <div class="mb-2 fw-bold text-dark">
+                            <span class="step-circle">3</span> Mở tài khoản giao dịch (MT4/MT5) và bắt đầu trade.
+                        </div>
+
+                        <div class="benefit-box">
+                            <div class="benefit-title">
+                                <i class="bi bi-gift-fill"></i> Ưu đãi hoàn phí
+                            </div>
+                            <ul class="benefit-list">
+                                <li><i class="bi bi-check-lg check-icon"></i> <strong>Hoàn 50%</strong> phí giao dịch (Spread & Commission).</li>
+                                <li><i class="bi bi-check-lg check-icon"></i> Tiền hoàn tự động về ví mỗi ngày.</li>
+                            </ul>
+                        </div>
+
+                        <div class="action-btns">
+                            <a href="https://zalo.me/0965657519" target="_blank" class="btn-zalo"><i class="bi bi-telephone-fill"></i> Hỗ trợ Zalo</a>
+                            <a href="#" class="btn-video"><i class="bi bi-telegram me-2 text-primary"></i>Tham Gia Cộng đồng</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-6">
+                    <div class="guide-card theme-black">
+                        <!-- <div class="hp-badge">HP</div> -->
+
+                        <div class="card-header-title">
+                            <i class="bi bi-arrow-repeat"></i> Trường Hợp 2: CHUYỂN ĐỔI TÁC (IB)
+                        </div>
+                        <p class="text-muted small">Dành cho tài khoản đã có nhưng muốn chuyển về hệ thống Trading Insight để nhận hoàn phí.</p>
+
+                        <div class="mb-2 fw-bold text-dark">
+                            <span class="step-circle">1</span> Chat với Support Exness (Live Chat) yêu cầu chuyển đối tác.
+                        </div>
+                        <div class="bg-light p-3 rounded border mb-3 small">
+                            <strong>Mẫu câu chat:</strong><br>
+                            <em>"Xin chào, tôi muốn chuyển tài khoản của mình sang đối tác có mã: <strong>z95z0g4oje</strong>"</em>
+                            <div class="text-end mt-2"><i class="bi bi-copy cursor-pointer" onclick="copyCode('Xin chào, tôi muốn chuyển tài khoản của mình sang đối tác có mã: z95z0g4oje')"></i></div>
+                        </div>
+
+                        <div class="mb-2 fw-bold text-dark">
+                            <span class="step-circle">2</span> Sau khi Support xác nhận chuyển thành công:
+                        </div>
+                        <div class="mb-2 fw-bold text-dark ms-4 small">
+                            Vào khu vực cá nhân ➝ Mở thêm <strong>Tài khoản giao dịch mới</strong> (MT4/MT5).
+                        </div>
+                        <div class="alert alert-secondary small py-2 mb-3">
+                            <i class="bi bi-info-circle-fill me-1"></i> Lưu ý: Phải mở tài khoản giao dịch mới sau khi chuyển IB thì mới được tính hoàn phí.
+                        </div>
+
+                        <div class="benefit-box">
+                            <div class="benefit-title">
+                                <i class="bi bi-gift-fill"></i> Ưu đãi hoàn phí
+                            </div>
+                            <ul class="benefit-list">
+                                <li><i class="bi bi-check-lg check-icon"></i> <strong>Hoàn 50%</strong> phí giao dịch trọn đời.</li>
+                                <li><i class="bi bi-check-lg check-icon"></i> Hoàn tự động vào tài khoản mỗi ngày.</li>
+                            </ul>
+                        </div>
+
+                        <div class="action-btns">
+                            <a href="https://zalo.me/0965657519" target="_blank" class="btn-zalo"><i class="bi bi-telephone-fill"></i> Hỗ trợ Zalo</a>
+                            <a href="#" class="btn-video"><i class="bi bi-telegram me-2 text-primary"></i>Tham Gia Cộng đồng</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="floating-socials-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+
+    <script>
+        loadComponent("header-placeholder", "../components/header.html");
+        loadComponent("footer-placeholder", "../components/footer.html");
+        loadComponent("floating-socials-placeholder", "../components/floating-socials.html");
+
+        function copyCode(text) {
+            navigator.clipboard.writeText(text);
+            alert("Đã copy: " + text);
+        }
+    </script>
+</body>
+
+</html>

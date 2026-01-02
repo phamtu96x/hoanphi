@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng Dẫn Hoàn Phí - Trading Insight</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="components/images/logopro.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <style>
+         :root {
+            --brand-green: #00bfa5;
+            /* Màu xanh ngọc giống ảnh */
+            --brand-yellow: #f1b90c;
+            /* Màu vàng Binance */
+            --bg-gray: #f8f9fa;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Segoe UI', sans-serif;
+            color: #333;
+        }
+        /* Menu Sidebar */
+        
+        .sticky-menu {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+        
+        .nav-pills .nav-link {
+            border-radius: 10px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 8px;
+            background: white;
+            border: 1px solid #eee;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-pills .nav-link:hover,
+        .nav-pills .nav-link.active {
+            background-color: var(--brand-green);
+            color: white;
+            border-color: var(--brand-green);
+            box-shadow: 0 4px 10px rgba(0, 191, 165, 0.3);
+        }
+        
+        .nav-pills .nav-link img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        /* Tiêu đề sàn */
+        
+        .guide-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 800;
+            color: #212529;
+            font-size: 2rem;
+        }
+        
+        .guide-title span {
+            color: var(--brand-green);
+        }
+        
+        .guide-title.binance span {
+            color: #F0B90B;
+        }
+        /* Màu riêng cho chữ Binance */
+        /* Card Style Chung */
+        
+        .guide-card {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            padding: 25px;
+            height: 100%;
+            position: relative;
+        }
+        /* Logo HP góc phải card */
+        
+        .hp-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            opacity: 0.8;
+            width: 30px;
+        }
+        /* Header trong Card */
+        
+        .card-head-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-head-title i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        /* Input Copy Box (Màu xám) */
+        
+        .copy-box {
+            background-color: #eef0f2;
+            border-radius: 8px;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 15px 0;
+            border: 1px solid #dee2e6;
+        }
+        
+        .copy-input {
+            border: none;
+            background: transparent;
+            font-weight: 700;
+            color: #495057;
+            font-size: 1.1rem;
+            width: 100%;
+            outline: none;
+        }
+        
+        .copy-icon {
+            cursor: pointer;
+            color: #6c757d;
+            font-size: 1.2rem;
+            transition: 0.2s;
+        }
+        
+        .copy-icon:hover {
+            color: var(--brand-green);
+            transform: scale(1.1);
+        }
+        /* Benefit Box (Khung ưu đãi) */
+        
+        .benefit-box {
+            background-color: #e0fcf6;
+            border: 1px solid #aefce4;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .benefit-box ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+        
+        .benefit-box li {
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .benefit-box li i {
+            color: #00bfa5;
+            margin-right: 8px;
+            margin-top: 3px;
+            font-weight: bold;
+        }
+        /* Buttons Action */
+        
+        .btn-zalo {
+            background-color: #10c15c;
+            color: white;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+        
+        .btn-zalo:hover {
+            background-color: #0d9e4b;
+            color: white;
+            box-shadow: 0 4px 10px rgba(16, 193, 92, 0.3);
+        }
+        
+        .btn-video {
+            background-color: white;
+            color: var(--brand-green);
+            border: 1px solid var(--brand-green);
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+        
+        .btn-video:hover {
+            background-color: #e0fcf6;
+        }
+        /* Nút Vàng Binance */
+        
+        .btn-binance-yellow {
+            background-color: #F0B90B;
+            color: black;
+            font-weight: 700;
+            width: 100%;
+            border-radius: 8px;
+            padding: 12px;
+            border: none;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+        
+        .btn-binance-yellow:hover {
+            background-color: #dcb313;
+            color: black;
+        }
+        /* Steps Number */
+        
+        .step-num {
+            background-color: var(--brand-green);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .step-num-blue {
+            background-color: #0d6efd;
+        }
+        /* Cho case chuyển ref */
+        /* Layout Utility */
+        
+        .divider {
+            height: 1px;
+            background-color: #eee;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-light bg-white shadow-sm mb-4 sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-dark" href="index.html">
+                <i class="bi bi-chevron-left me-1"></i> Quay lại
+            </a>
+            <span class="fw-bold text-success d-none d-md-block">TRUNG TÂM HƯỚNG DẪN HOÀN PHÍ</span>
+        </div>
+    </nav>
+
+    <div class="container pb-5">
+        <div class="row">
+
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="sticky-menu">
+                    <div class="p-3 bg-white rounded-4 shadow-sm border">
+                        <h6 class="fw-bold text-muted mb-3 small text-uppercase ls-1">Chọn sàn giao dịch</h6>
+                        <div class="nav flex-column nav-pills">
+                            <a href="#binance" class="nav-link"><img src="images/binance.jpg">Binance</a>
+                            <a href="#okx" class="nav-link"><img src="images/okx.png">OKX</a>
+                            <a href="#bybit" class="nav-link"><img src="images/bybit.png">Bybit</a>
+                            <a href="#bingx" class="nav-link"><img src="images/bingx.png">BingX</a>
+                            <a href="#mexc" class="nav-link"><img src="images/mexc.png">MEXC</a>
+                            <a href="#exness" class="nav-link"><img src="images/exness.png">Exness</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+
+                <div id="binance" class="pt-2">
+                    <h2 class="guide-title binance">Hướng Dẫn Hoàn Phí Sàn <span>BINANCE</span></h2>
+                    <p class="text-center text-muted mb-4">Thực hiện theo các bước đơn giản dưới đây để bắt đầu tiết kiệm chi phí giao dịch!</p>
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="guide-card">
+                                <div class="hp-logo fw-bold text-muted small border rounded px-1">HP</div>
+
+                                <div class="card-head-title text-success">
+                                    <i class="bi bi-person-plus"></i> Trường Hợp 1: Đăng ký tài khoản mới
+                                </div>
+
+                                <p class="small text-muted mb-3">Dành cho người dùng chưa có tài khoản Binance.</p>
+
+                                <div class="mb-3">
+                                    <p class="fw-bold mb-2 small"><span class="step-num">1</span> Đăng ký bằng SĐT/Email qua mã:</p>
+                                    <div class="copy-box">
+                                        <input type="text" class="copy-input text-success" value="HOANPHITIS" id="binanceCode1" readonly>
+                                        <i class="bi bi-files copy-icon" onclick="copyCode('binanceCode1')"></i>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <p class="fw-bold mb-0 small"><span class="step-num">2</span> Thực hiện KYC (xác minh danh tính) bằng CCCD, GPLX hoặc Hộ chiếu.</p>
+                                </div>
+
+                                <div class="benefit-box">
+                                    <h6 class="fw-bold small mb-2"><i class="bi bi-gift"></i> Ưu đãi hoàn phí</h6>
+                                    <ul>
+                                        <li><i class="bi bi-check-lg"></i> <strong>SPOT:</strong> Hoàn 20% vĩnh viễn ngay sau giao dịch.</li>
+                                        <li><i class="bi bi-check-lg"></i> <strong>FUTURES:</strong> Hoàn 20% vĩnh viễn (Tháng đầu).</li>
+                                    </ul>
+                                </div>
+
+                                <div class="mt-4 d-flex gap-2 justify-content-center">
+                                    <a href="https://zalo.me/SĐT_CỦA_BẠN" class="btn-zalo"><i class="bi bi-telephone-fill"></i> Hỗ trợ Zalo</a>
+                                    <a href="#" class="btn-video"><i class="bi bi-camera-video"></i> Xem video</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="guide-card">
+                                <div class="hp-logo fw-bold text-muted small border rounded px-1">HP</div>
+
+                                <div class="card-head-title text-primary">
+                                    <i class="bi bi-arrow-repeat"></i> Trường Hợp 2: Chuyển đổi Ref ID
+                                </div>
+
+                                <p class="small text-muted mb-3">Dành cho KH đã có tài khoản (không có ref) và không giao dịch trong 6 tháng gần nhất.</p>
+
+                                <div class="mb-3">
+                                    <p class="fw-bold mb-2 small"><span class="step-num step-num-blue">1</span> Đăng nhập qua link liên kết đặc biệt:</p>
+                                    <a href="https://www.binance.com/join?ref=HOANPHITIS" target="_blank" class="btn-binance-yellow">
+                                        Link Liên Kết Chuyển Đổi
+                                    </a>
+                                </div>
+
+                                <div class="mb-2">
+                                    <p class="fw-bold mb-1 small"><span class="step-num step-num-blue">2</span> Chọn "Đăng nhập" vào tài khoản hiện tại.</p>
+                                </div>
+                                <div class="mb-3">
+                                    <p class="fw-bold mb-0 small"><span class="step-num step-num-blue">3</span> Nhấn "Bind Now" (Liên Kết Ngay) để hoàn tất.</p>
+                                </div>
+
+                                <div class="benefit-box" style="background-color: #e7f1ff; border-color: #b6d4fe;">
+                                    <h6 class="fw-bold small mb-2 text-primary"><i class="bi bi-gift"></i> Ưu đãi hoàn phí</h6>
+                                    <ul>
+                                        <li><i class="bi bi-check-lg text-primary"></i> <strong>SPOT:</strong> Hoàn 20% vĩnh viễn.</li>
+                                        <li><i class="bi bi-check-lg text-primary"></i> <strong>FUTURES:</strong> Hoàn 20% vĩnh viễn.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="mt-4 d-flex gap-2 justify-content-center">
+                                    <a href="https://zalo.me/SĐT_CỦA_BẠN" class="btn-zalo"><i class="bi bi-telephone-fill"></i> Hỗ trợ Zalo</a>
+                                    <a href="#" class="btn-video"><i class="bi bi-camera-video"></i> Xem video</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+
+
+                <div id="okx">
+                    <h2 class="guide-title">Hướng Dẫn Hoàn Phí Sàn <span>OKX</span></h2>
+
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+
+                            <div class="guide-card mb-4">
+                                <div class="hp-logo fw-bold text-muted small border rounded px-1">HP</div>
+
+                                <h5 class="fw-bold mb-3 text-dark">
+                                    <i class="bi bi-person-plus text-success me-2"></i>Trường Hợp 1: Đăng ký tài khoản OKX mới
+                                </h5>
+                                <p class="text-muted small">Hướng dẫn đăng ký tài khoản OKX qua Trading Insight để nhận hoàn 50% phí giao dịch vĩnh viễn.</p>
+
+                                <p class="fw-bold small mb-2"><span class="step-num">1</span> Đăng ký tài khoản OKX bằng SĐT/Email qua mã giới thiệu:</p>
+                                <div class="copy-box">
+                                    <input type="text" class="copy-input text-success" value="tradinginsight" id="okxCode1" readonly>
+                                    <i class="bi bi-files copy-icon" onclick="copyCode('okxCode1')"></i>
+                                </div>
+
+                                <p class="fw-bold small mb-2"><span class="step-num">2</span> Thực hiện KYC bằng giấy tờ tùy thân (CCCD, GPLX hoặc Hộ chiếu).</p>
+                                <p class="fw-bold small mb-3"><span class="step-num">3</span> KYC thành công ➝ Nạp tiền và bắt đầu giao dịch.</p>
+
+                                <div class="benefit-box">
+                                    <h6 class="fw-bold small mb-2"><i class="bi bi-gift"></i> Ưu đãi hoàn phí</h6>
+                                    <ul>
+                                        <li><i class="bi bi-check-lg"></i> <strong>SPOT:</strong> Hoàn 20% vĩnh viễn ngay sau giao dịch.</li>
+                                        <li><i class="bi bi-check-lg"></i> <strong>FUTURES:</strong> Hoàn 30% hàng tháng.</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-3 d-flex gap-2">
+                                    <a href="https://zalo.me/SĐT_CỦA_BẠN" class="btn-zalo"><i class="bi bi-telephone-fill"></i> Hỗ trợ Zalo</a>
+                                    <a href="#" class="btn-video"><i class="bi bi-camera-video"></i> Xem video</a>
+                                </div>
+                            </div>
+
+                            <div class="guide-card mb-4">
+                                <div class="hp-logo fw-bold text-muted small border rounded px-1">HP</div>
+
+                                <h5 class="fw-bold mb-3 text-dark">
+                                    <i class="bi bi-pin-angle-fill text-danger me-2"></i>Trường Hợp 2: NẾU KH ĐÃ CÓ TK NHƯNG CHƯA ĐK DƯỚI REF KHÁC
+                                </h5>
+
+                                <div class="alert alert-primary py-2 px-3 small border-0 bg-opacity-10 bg-primary text-primary fw-bold rounded-3">
+                                    <i class="bi bi-lightbulb-fill me-2"></i> Đối tượng áp dụng: Tài khoản Organic, ít giao dịch.
+                                </div>
+
+                                <p class="small fw-bold text-primary mb-2">Hướng dẫn chuyển link Ref tài khoản OKX Cũ Đang Dùng:</p>
+
+                                <div class="bg-light p-3 rounded border mb-3">
+                                    <div class="mb-3">
+                                        <label class="small fw-bold text-muted">B1: Vào Link (Đăng nhập trước)</label>
+                                        <div class="input-group input-group-sm mt-1">
+                                            <input type="text" class="form-control bg-white" value="https://www.okx.com/ul/J6l2R5" readonly>
+                                            <button class="btn btn-outline-secondary"><i class="bi bi-clipboard"></i></button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="small fw-bold text-muted">B2: Điền Form</label>
+                                        <div class="bg-white border rounded p-2 mt-1 mb-2 position-relative">
+                                            <small class="text-muted d-block" style="font-size: 10px;">Mã mời</small>
+                                            <strong class="text-dark">tradinginsight</strong>
+                                            <i class="bi bi-files position-absolute top-50 end-0 translate-middle-y me-2 text-muted"></i>
+                                        </div>
+                                        <div class="bg-white border rounded p-2 position-relative">
+                                            <small class="text-muted d-block" style="font-size: 10px;">Lý do tham gia</small>
+                                            <em class="text-dark small" style="font-size: 11px;">I was invited by an affiliate but forgot...</em>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="small fw-bold mb-0">B3: Nhấn submit là xong 1 ngày sau có kết quả.</p>
+                            </div>
+
+                            <div class="guide-card">
+                                <div class="hp-logo fw-bold text-muted small border rounded px-1">HP</div>
+                                <h5 class="fw-bold mb-3 text-dark">
+                                    <i class="bi bi-trash3-fill text-danger me-2"></i>Trường Hợp 3: Đã có TK và có Ref khác
+                                </h5>
+                                <p class="small text-muted mb-2">Buộc phải hủy tài khoản cũ và tạo lại.</p>
+
+                                <div class="d-flex align-items-center gap-1 small fw-bold text-danger mb-3 flex-wrap">
+                                    <span class="badge bg-danger bg-opacity-10 text-danger border border-danger">Huỷ lệnh</span> ➝
+                                    <span class="badge bg-danger bg-opacity-10 text-danger border border-danger">Chuyển hết tài sản</span> ➝
+                                    <span class="badge bg-danger bg-opacity-10 text-danger border border-danger">Xóa tài khoản cũ</span> ➝
+                                    <span class="badge bg-success bg-opacity-10 text-success border border-success">Đăng ký mới</span>
+                                </div>
+
+                                <div class="copy-box my-3">
+                                    <input type="text" class="copy-input text-danger" value="tradinginsight" id="okxCode3" readonly>
+                                    <i class="bi bi-files copy-icon" onclick="copyCode('okxCode3')"></i>
+                                </div>
+
+                                <div class="alert alert-warning border-warning bg-warning bg-opacity-10 text-dark small">
+                                    <i class="bi bi-exclamation-triangle-fill me-1"></i> <strong>Lưu ý:</strong>
+                                    <ul class="mb-0 ps-3 mt-1">
+                                        <li>Nên dùng Gmail mới và SĐT mới.</li>
+                                        <li>Nên dùng giấy tờ KYC khác loại với tài khoản cũ (Ví dụ cũ dùng CCCD thì mới dùng Hộ chiếu) để duyệt nhanh.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+
+                <div id="bybit" class="text-center py-5">
+                    <h3 class="text-muted">Hướng dẫn Bybit đang cập nhật...</h3>
+                    <a href="https://zalo.me/SĐT_CỦA_BẠN" class="btn btn-outline-success rounded-pill mt-3">Liên hệ Admin lấy hướng dẫn</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyCode(id) {
+            var copyText = document.getElementById(id);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("Đã copy: " + copyText.value);
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

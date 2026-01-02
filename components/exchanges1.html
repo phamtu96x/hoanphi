@@ -1,0 +1,227 @@
+<section id="san-giao-dich" class="py-5" style="background-color: #f8f9fa;">
+    <div class="container">
+
+        <div class="text-center mb-4">
+            <h2 class="fw-bold display-6" style="color: var(--brand-navy);">Sàn Giao Dịch Uy Tín</h2>
+            <p class="text-muted fs-5">Lọc theo nhu cầu giao dịch</p>
+        </div>
+
+        <div class="d-flex justify-content-center gap-2 mb-5 flex-wrap">
+            <button class="btn btn-primary rounded-pill px-4 fw-bold filter-btn" onclick="appFilterExchange('all', this)">Tất cả</button>
+            <button class="btn btn-outline-secondary rounded-pill px-4 fw-bold filter-btn" onclick="appFilterExchange('cex', this)">CEX (Crypto)</button>
+            <button class="btn btn-outline-secondary rounded-pill px-4 fw-bold filter-btn" onclick="appFilterExchange('dex', this)">DEX (Web3)</button>
+            <button class="btn btn-outline-secondary rounded-pill px-4 fw-bold filter-btn" onclick="appFilterExchange('forex', this)">Forex</button>
+        </div>
+
+        <div class="row g-3" id="exchange-list-container">
+
+            <div class="col-lg-4 col-md-6 exchange-item-target" data-tag="cex">
+                <div class="exchange-card h-100 border rounded-4 overflow-hidden shadow-sm">
+                    <div class="exchange-logo-container d-flex align-items-center justify-content-center position-relative" style="background-color: #1e2329; height: 100px;">
+
+                        <span class="badge bg-white bg-opacity-25 text-white position-absolute top-0 start-0 mt-2 ms-2 d-flex align-items-center px-2 py-1 rounded-pill shadow-sm" style="font-size: 11px; backdrop-filter: blur(2px);">
+                            <i class="bi bi-star-fill text-warning me-1"></i> Ưu tiên
+                        </span>
+
+                        <span class="exchange-badge" style="font-size: 10px; padding: 4px 8px;">CEX</span>
+
+                        <div class="exchange-logo-box bg-white rounded-3 p-1"><img src="images/binance.jpg" alt="Binance" style="width: 40px;"></div>
+                    </div>
+
+                    <div class="p-3 bg-white text-center">
+                        <h5 class="fw-bold mb-1">Binance</h5>
+                        <p class="text-success fw-bold small mb-3">Hoàn phí: 20%</p>
+                        <div class="d-flex align-items-center py-2 px-2 mb-2 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">Loại:</span>
+                            <span class="fw-bold text-dark w-100 text-center small" style="font-size: 13px;">Tự Động Hàng Ngày</span>
+                        </div>
+                        <div class="d-flex align-items-center py-2 px-2 mb-3 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">CODE:</span>
+                            <strong class="text-dark w-100 text-center" style="font-size: 13px;">HOANPHITIS</strong>
+                            <i class="bi bi-copy cursor-pointer text-primary position-absolute end-0 me-2" onclick="copyToClipboard('HOANPHITIS')"></i>
+                        </div>
+                        <a href="https://www.binance.com/join?ref=HOANPHITIS" target="_blank" class="btn btn-primary w-100 fw-bold btn-sm mb-2 py-2">Đăng ký ngay</a>
+                        <a href="huong-dan/binance.html" target="_blank" class="text-muted small text-decoration-underline" style="font-size: 12px;">Xem hướng dẫn chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 exchange-item-target" data-tag="cex">
+                <div class="exchange-card h-100 border rounded-4 overflow-hidden shadow-sm">
+                    <div class="exchange-logo-container d-flex align-items-center justify-content-center position-relative" style="background-color: #00f0ff; height: 100px;">
+
+                        <span class="badge bg-white bg-opacity-25 text-white position-absolute top-0 start-0 mt-2 ms-2 d-flex align-items-center px-2 py-1 rounded-pill shadow-sm" style="font-size: 11px; backdrop-filter: blur(2px);">
+                            <i class="bi bi-star-fill text-warning me-1"></i> Ưu tiên
+                        </span>
+
+                        <span class="exchange-badge" style="font-size: 10px; padding: 4px 8px;">CEX</span>
+                        <div class="exchange-logo-box bg-white rounded-3 p-1"><img src="images/bitget.png" alt="Bitget" style="width: 40px;"></div>
+                    </div>
+                    <div class="p-3 bg-white text-center">
+                        <h5 class="fw-bold mb-1">Bitget</h5>
+                        <p class="text-success fw-bold small mb-3">Hoàn phí: 50%</p>
+                        <div class="d-flex align-items-center py-2 px-2 mb-2 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">Loại:</span>
+                            <span class="fw-bold text-dark w-100 text-center small" style="font-size: 13px;">Tự Động Hàng Ngày</span>
+                        </div>
+                        <div class="d-flex align-items-center py-2 px-2 mb-3 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">CODE:</span>
+                            <strong class="text-dark w-100 text-center" style="font-size: 13px;">MR08MJ</strong>
+                            <i class="bi bi-copy cursor-pointer text-primary position-absolute end-0 me-2" onclick="copyToClipboard('MR08MJ')"></i>
+                        </div>
+                        <a href="https://partner.bitget.com/bg/MR08MJ" target="_blank" class="btn btn-primary w-100 fw-bold btn-sm mb-2 py-2">Đăng ký ngay</a>
+                        <a href="huong-dan/bitget.html" target="_blank" class="text-muted small text-decoration-underline" style="font-size: 12px;">Xem hướng dẫn chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 exchange-item-target" data-tag="cex">
+                <div class="exchange-card h-100 border rounded-4 overflow-hidden shadow-sm">
+                    <div class="exchange-logo-container d-flex align-items-center justify-content-center position-relative" style="background-color: #0056b3; height: 100px;">
+
+                        <span class="badge bg-white bg-opacity-25 text-white position-absolute top-0 start-0 mt-2 ms-2 d-flex align-items-center px-2 py-1 rounded-pill shadow-sm" style="font-size: 11px; backdrop-filter: blur(2px);">
+                            <i class="bi bi-star-fill text-warning me-1"></i> Ưu tiên
+                        </span>
+
+                        <span class="exchange-badge" style="font-size: 10px; padding: 4px 8px;">CEX</span>
+                        <div class="exchange-logo-box bg-white rounded-3 p-1"><img src="images/bingx.png" alt="BingX" style="width: 40px;"></div>
+                    </div>
+                    <div class="p-3 bg-white text-center">
+                        <h5 class="fw-bold mb-1">BingX</h5>
+                        <p class="text-success fw-bold small mb-3">Hoàn phí: 50%</p>
+                        <div class="d-flex align-items-center py-2 px-2 mb-2 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">Loại:</span>
+                            <span class="fw-bold text-dark w-100 text-center small" style="font-size: 13px;">Tự Động Hàng Ngày</span>
+                        </div>
+                        <div class="d-flex align-items-center py-2 px-2 mb-3 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">CODE:</span>
+                            <strong class="text-dark w-100 text-center" style="font-size: 13px;">TradingInsight</strong>
+                            <i class="bi bi-copy cursor-pointer text-primary position-absolute end-0 me-2" onclick="copyToClipboard('TradingInsight')"></i>
+                        </div>
+                        <a href="https://bingx.com/vi-vn/partner/TradingInsight" target="_blank" class="btn btn-primary w-100 fw-bold btn-sm mb-2 py-2">Đăng ký ngay</a>
+                        <a href="huong-dan/bingx.html" target="_blank" class="text-muted small text-decoration-underline" style="font-size: 12px;">Xem hướng dẫn chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 exchange-item-target" data-tag="cex">
+                <div class="exchange-card h-100 border rounded-4 overflow-hidden shadow-sm">
+                    <div class="exchange-logo-container d-flex align-items-center justify-content-center position-relative" style="background-color: #000000; height: 100px;">
+
+                        <!-- <span class="badge bg-white bg-opacity-25 text-white position-absolute top-0 start-0 mt-2 ms-2 d-flex align-items-center px-2 py-1 rounded-pill shadow-sm" style="font-size: 11px; backdrop-filter: blur(2px);">
+                            <i class="bi bi-star-fill text-warning me-1"></i> Ưu tiên
+                        </span> -->
+
+                        <span class="exchange-badge" style="font-size: 10px; padding: 4px 8px;">CEX</span>
+                        <div class="exchange-logo-box bg-white rounded-3 p-1"><img src="images/okx.png" alt="OKX" style="width: 40px;"></div>
+                    </div>
+                    <div class="p-3 bg-white text-center">
+                        <h5 class="fw-bold mb-1">OKX</h5>
+                        <p class="text-success fw-bold small mb-3">Hoàn phí: 50%</p>
+                        <div class="d-flex align-items-center py-2 px-2 mb-2 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">Loại:</span>
+                            <span class="fw-bold text-dark w-100 text-center small" style="font-size: 13px;">Tự Động Hàng Ngày</span>
+                        </div>
+                        <div class="d-flex align-items-center py-2 px-2 mb-3 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">CODE:</span>
+                            <strong class="text-dark w-100 text-center" style="font-size: 13px;">tradinginsight</strong>
+                            <i class="bi bi-copy cursor-pointer text-primary position-absolute end-0 me-2" onclick="copyToClipboard('tradinginsight')"></i>
+                        </div>
+                        <a href="https://www.okx.com/vi/join/tradinginsight" target="_blank" class="btn btn-primary w-100 fw-bold btn-sm mb-2 py-2">Đăng ký ngay</a>
+                        <a href="huong-dan/okx.html" target="_blank" class="text-muted small text-decoration-underline" style="font-size: 12px;">Xem hướng dẫn chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 exchange-item-target" data-tag="cex">
+                <div class="exchange-card h-100 border rounded-4 overflow-hidden shadow-sm">
+                    <div class="exchange-logo-container d-flex align-items-center justify-content-center position-relative" style="background-color: #17181e; height: 100px;">
+
+                        <!-- <span class="badge bg-white bg-opacity-25 text-white position-absolute top-0 start-0 mt-2 ms-2 d-flex align-items-center px-2 py-1 rounded-pill shadow-sm" style="font-size: 11px; backdrop-filter: blur(2px);">
+                            <i class="bi bi-star-fill text-warning me-1"></i> Ưu tiên
+                        </span> -->
+
+                        <span class="exchange-badge" style="font-size: 10px; padding: 4px 8px;">CEX</span>
+                        <div class="exchange-logo-box bg-white rounded-3 p-1"><img src="images/bybit.png" alt="Bybit" style="width: 40px;"></div>
+                    </div>
+                    <div class="p-3 bg-white text-center">
+                        <h5 class="fw-bold mb-1">Bybit</h5>
+                        <p class="text-success fw-bold small mb-3">Hoàn phí: 50%</p>
+                        <div class="d-flex align-items-center py-2 px-2 mb-2 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">Loại:</span>
+                            <span class="fw-bold text-dark w-100 text-center small" style="font-size: 13px;">Tự Động Hàng Ngày</span>
+                        </div>
+                        <div class="d-flex align-items-center py-2 px-2 mb-3 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">CODE:</span>
+                            <strong class="text-dark w-100 text-center" style="font-size: 13px;">HOANPHITIS</strong>
+                            <i class="bi bi-copy cursor-pointer text-primary position-absolute end-0 me-2" onclick="copyToClipboard('HOANPHITIS')"></i>
+                        </div>
+                        <a href="https://partner.bybit.com/b/HOANPHITIS" target="_blank" class="btn btn-primary w-100 fw-bold btn-sm mb-2 py-2">Đăng ký ngay</a>
+                        <a href="huong-dan/bybit.html" target="_blank" class="text-muted small text-decoration-underline" style="font-size: 12px;">Xem hướng dẫn chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-4 col-md-6 exchange-item-target" data-tag="cex">
+                <div class="exchange-card h-100 border rounded-4 overflow-hidden shadow-sm">
+                    <div class="exchange-logo-container d-flex align-items-center justify-content-center position-relative" style="background-color: #0e8529; height: 100px;">
+
+                        <!-- <span class="badge bg-white bg-opacity-25 text-white position-absolute top-0 start-0 mt-2 ms-2 d-flex align-items-center px-2 py-1 rounded-pill shadow-sm" style="font-size: 11px; backdrop-filter: blur(2px);">
+                            <i class="bi bi-star-fill text-warning me-1"></i> Ưu tiên
+                        </span> -->
+
+                        <span class="exchange-badge" style="font-size: 10px; padding: 4px 8px;">CEX</span>
+                        <div class="exchange-logo-box bg-white rounded-3 p-1"><img src="images/mexc.png" alt="MEXC" style="width: 40px;"></div>
+                    </div>
+                    <div class="p-3 bg-white text-center">
+                        <h5 class="fw-bold mb-1">MEXC</h5>
+                        <p class="text-success fw-bold small mb-3">Hoàn phí: 50%</p>
+                        <div class="d-flex align-items-center py-2 px-2 mb-2 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">Loại:</span>
+                            <span class="fw-bold text-dark w-100 text-center small" style="font-size: 13px;">Tự Động Hàng Ngày</span>
+                        </div>
+                        <div class="d-flex align-items-center py-2 px-2 mb-3 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">CODE:</span>
+                            <strong class="text-dark w-100 text-center" style="font-size: 13px;">mexc-18epb</strong>
+                            <i class="bi bi-copy cursor-pointer text-primary position-absolute end-0 me-2" onclick="copyToClipboard('mexc-18epb')"></i>
+                        </div>
+                        <a href="https://www.mexc.com/vi-VN/acquisition/custom-sign-up?shareCode=mexc-18epb" target="_blank" class="btn btn-primary w-100 fw-bold btn-sm mb-2 py-2">Đăng ký ngay</a>
+                        <a href="huong-dan/mexc.html" target="_blank" class="text-muted small text-decoration-underline" style="font-size: 12px;">Xem hướng dẫn chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 exchange-item-target" data-tag="forex">
+                <div class="exchange-card h-100 border rounded-4 overflow-hidden shadow-sm">
+                    <div class="exchange-logo-container d-flex align-items-center justify-content-center position-relative" style="background-color: #FFCC00; height: 100px;">
+
+                        <span class="badge bg-dark bg-opacity-50 text-white position-absolute top-0 start-0 mt-2 ms-2 d-flex align-items-center px-2 py-1 rounded-pill shadow-sm" style="font-size: 11px; backdrop-filter: blur(2px);">
+                            <i class="bi bi-star-fill text-warning me-1"></i> Ưu tiên
+                        </span>
+
+                        <span class="exchange-badge text-dark" style="font-size: 10px; padding: 4px 8px;">Forex</span>
+                        <div class="exchange-logo-box bg-black rounded-3 p-1"><img src="images/exness.png" alt="Exness" style="width: 40px;"></div>
+                    </div>
+                    <div class="p-3 bg-white text-center">
+                        <h5 class="fw-bold mb-1">Exness</h5>
+                        <p class="text-success fw-bold small mb-3">Hoàn phí: 50%</p>
+                        <div class="d-flex align-items-center py-2 px-2 mb-2 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">Loại:</span>
+                            <span class="fw-bold text-dark w-100 text-center small" style="font-size: 13px;">Tự Động Hàng Ngày</span>
+                        </div>
+                        <div class="d-flex align-items-center py-2 px-2 mb-3 border border-dashed rounded bg-light position-relative">
+                            <span class="text-muted small position-absolute start-0 ms-2" style="font-size: 12px;">CODE:</span>
+                            <strong class="text-dark w-100 text-center" style="font-size: 13px;">z95z0g4oje</strong>
+                            <i class="bi bi-copy cursor-pointer text-primary position-absolute end-0 me-2" onclick="copyToClipboard('z95z0g4oje')"></i>
+                        </div>
+                        <a href="https://one.exnessonelink.com/a/z95z0g4oje" target="_blank" class="btn btn-primary w-100 fw-bold btn-sm mb-2 py-2">Mở tài khoản</a>
+                        <a href="huong-dan/exness.html" target="_blank" class="text-muted small text-decoration-underline" style="font-size: 12px;">Xem hướng dẫn chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

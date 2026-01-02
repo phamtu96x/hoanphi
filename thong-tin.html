@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Về Chúng Tôi - Trading Insight</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .feature-icon-box {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(253, 126, 20, 0.1);
+            color: var(--brand-orange);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .check-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+        
+        .check-list li::before {
+            content: "\F26A";
+            /* Icon Check Circle */
+            font-family: "bootstrap-icons";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--brand-orange);
+        }
+        
+        .cross-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+        
+        .cross-list li::before {
+            content: "\F62A";
+            /* Icon X Circle */
+            font-family: "bootstrap-icons";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #dc3545;
+            /* Màu đỏ */
+        }
+        
+        .stat-card {
+            border-left: 4px solid var(--brand-orange);
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="py-5 bg-light border-bottom position-relative overflow-hidden">
+            <div class="container position-relative z-1">
+                <nav aria-label="breadcrumb" class="mb-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none fw-bold" style="color: var(--brand-navy);">TRANG CHỦ</a></li>
+                        <li class="breadcrumb-item active text-uppercase fw-bold" aria-current="page" style="color: var(--brand-orange);">Thông Tin Về Chúng Tôi</li>
+                    </ol>
+                </nav>
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h1 class="fw-bold display-5 mb-3" style="color: var(--brand-navy);">Trading Insight là gì?</h1>
+                        <p class="lead text-muted mb-4">
+                            Nền tảng hỗ trợ Trader/Holder tối ưu chi phí giao dịch thông qua cơ chế <strong>Hoàn Phí Giao Dịch/Backcom</strong> thông qua giới thiệu tại các sàn giao dịch.
+                        </p>
+                        <p class="text-muted">
+                            Trong thị trường Crypto/Forex, lợi nhuận không chỉ đến từ giao dịch theo biến động giá mà còn bị ảnh hưởng lớn bởi phí giao dịch (đến từ mở/đóng lệnh). Trading Insight hoạt động và đồng hành với các nhà giao dịch với giá trị: <strong>Giúp Trader/Holder tối ưu và nhận lại được nhiều lợi nhuận hơn từ chính mỗi giao dịch họ thực hiện.</strong>
+                        </p>
+
+                        <div class="row g-3 mt-4">
+                            <div class="col-sm-6">
+                                <div class="stat-card">
+                                    <h3 class="fw-bold text-navy mb-0">12,000+</h3>
+                                    <small class="text-muted text-uppercase fw-bold">Người dùng đang hoạt động</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="stat-card">
+                                    <h3 class="fw-bold text-orange mb-0">$10M+</h3>
+                                    <small class="text-muted text-uppercase fw-bold">Tiền Phí Giao Dịch đã được hoàn</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-block">
+                        <img src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=800&q=80" alt="About Trading Insight" class="img-fluid rounded-4 shadow-lg">
+                    </div>
+                </div>
+            </div>
+            <div class="position-absolute top-0 end-0 w-50 h-100" style="background: radial-gradient(circle at 80% 50%, rgba(10, 25, 47, 0.03) 0%, transparent 50%); pointer-events: none;"></div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5 mx-auto" style="max-width: 700px;">
+                    <h2 class="fw-bold mb-3" style="color: var(--brand-navy);">Trading Insight Hoạt Động Như Thế Nào?</h2>
+                    <p class="text-muted">Trading Insight là đối tác chiến lược hàng đầu của các sàn giao Dịch Binance, OKX, Bybit, BingX. Chúng tôi chia sẻ lại hoa hồng đối tác cho chính bạn.</p>
+                </div>
+
+                <div class="row g-4 text-center">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm p-4 rounded-4">
+                            <div class="mx-auto bg-light rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="bi bi-link-45deg fs-2 text-navy"></i>
+                            </div>
+                            <h5 class="fw-bold">1. Liên Kết Đối Tác</h5>
+                            <p class="text-muted small">Bạn đăng ký tài khoản qua liên kết đối tác của Trading Insight tại các sàn giao dịch uy tín.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm p-4 rounded-4">
+                            <div class="mx-auto bg-light rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="bi bi-graph-up-arrow fs-2 text-navy"></i>
+                            </div>
+                            <h5 class="fw-bold">2. Giao Dịch Bình Thường</h5>
+                            <p class="text-muted small">Bạn vẫn trade trực tiếp trên sàn như cũ. Không phát sinh chi phí, không thay đổi thói quen.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm p-4 rounded-4" style="background-color: #0a192f; color: white;">
+                            <div class="mx-auto bg-white bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="bi bi-cash-coin fs-2 text-orange"></i>
+                            </div>
+                            <h5 class="fw-bold text-white">3. Nhận Hoàn Phí</h5>
+                            <p class="text-white-50 small">Hệ thống tự động tính toán và hoàn trả phí giao dịch vào tài khoản của bạn. Minh bạch & Đều đặn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="fw-bold mb-4" style="color: var(--brand-navy);">Định Vị Của Chúng Tôi</h2>
+                        <p class="text-muted mb-4">Trading Insight được thành lập bởi những người có kinh nghiệm thực chiến, hiểu rõ nỗi đau của việc "phí chồng phí" bào mòn lợi nhuận.</p>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold text-navy mb-3">✅ Chúng Tôi Hoạt Động:</h6>
+                                <ul class="list-unstyled check-list small">
+                                    <li>Đối tác hoàn phí giao dịch hàng đầu</li>
+                                    <li>Cộng Đồng Giao Dịch Public</li>
+                                    <li>Người đồng hành dài hạn</li>
+                                    <li>Hoàn Phí Minh Bạch theo chính sách Sàn</li>
+                                    <li>Hỗ trợ Kols/Partner</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold text-danger mb-3">❌ Chúng Tôi 5 Không:</h6>
+                                <ul class="list-unstyled cross-list small">
+                                    <li>Không phải sàn giao dịch</li>
+                                    <li>Không nhận ủy thác đầu tư</li>
+                                    <li>Không dịch vụ liên quan tới tài sản</li>
+                                    <li>Không Nhóm VIP/Không Group Private</li>
+                                    <li>Không Lớp Học/Không Dạy Học</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-5 rounded-4 text-white text-center" style="background: linear-gradient(135deg, #0a192f 0%, #1c3d6e 100%);">
+                            <i class="bi bi-shield-check display-1 mb-3 text-orange"></i>
+                            <h3 class="fw-bold">Cam Kết Vàng</h3>
+                            <p class="opacity-75 mb-4">"Một trader tồn tại lâu trên thị trường là trader biết kiểm soát rủi ro và tối ưu chi phí."</p>
+                            <div class="d-flex flex-wrap justify-content-center gap-3">
+                                <span class="badge bg-white text-dark py-2 px-3 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> Không giữ tiền</span>
+                                <span class="badge bg-white text-dark py-2 px-3 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> Không can thiệp lệnh</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row align-items-center g-5">
+
+                    <div class="col-lg-5 order-2 order-lg-1">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Đồng hành cùng Trader" class="img-fluid rounded-4 shadow">
+                            <div class="position-absolute top-0 start-0 translate-middle bg-white p-3 rounded-3 shadow border-start border-4 border-navy d-none d-md-block">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="bg-orange bg-opacity-10 text-orange rounded-circle p-2">
+                                        <i class="bi bi-people-fill fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold text-navy mb-0">Cộng đồng</h6>
+                                        <small class="text-muted">Gắn kết & Sẻ chia</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 order-1 order-lg-2">
+                        <h2 class="fw-bold mb-4" style="color: var(--brand-navy);">Hơn Cả Hoàn Phí - Trading Insight Là Người Đồng Hành</h2>
+                        <p class="text-muted mb-4">
+                            Trong hành trình đầu tư đầy cô đơn và áp lực. Trading Insight như một làn gió mới, như một người bạn đồng hành đến với các nhà đầu tư với sự an tâm về tối ưu chi phí trong giao dịch.
+                        </p>
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="d-flex gap-3">
+                                    <div class="flex-shrink-0"><i class="bi bi-graph-up-arrow fs-4 text-orange"></i></div>
+                                    <div>
+                                        <h5 class="fw-bold text-navy h6">Tối Ưu Chi Phí và Lợi Nhuận Kép</h5>
+                                        <p class="small text-muted">Biến phí giao dịch (chi phí mất đi) thành dòng tiền thụ động. Nhận lại hàng ngày, hàng tháng như một khoản lợi nhuận thực thụ.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex gap-3">
+                                    <div class="flex-shrink-0"><i class="bi bi-shield-shaded fs-4 text-orange"></i></div>
+                                    <div>
+                                        <h5 class="fw-bold text-navy h6">Tâm Lý Vững Vàng</h5>
+                                        <p class="small text-muted">Giảm bớt áp lực tâm lý khi gồng lệnh hoặc cắt lỗ. Không còn lo lắng về phí giao dịch khi vào lệnh.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex gap-3">
+                                    <div class="flex-shrink-0"><i class="bi bi-lightbulb-fill fs-4 text-orange"></i></div>
+                                    <div>
+                                        <h5 class="fw-bold text-navy h6">Tin Tức & Kiến Thức</h5>
+                                        <p class="small text-muted">Cung cấp thông tin chính xác & tin tức mới nhất của thị trường, cảnh báo rủi ro và các cơ hội Airdrop.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex gap-3">
+                                    <div class="flex-shrink-0"><i class="bi bi-infinity fs-4 text-orange"></i></div>
+                                    <div>
+                                        <h5 class="fw-bold text-navy h6">Đồng Hành Dài Hạn</h5>
+                                        <p class="small text-muted">Luôn đồng hành cùng bạn qua cả mùa Uptrend lẫn Downtrend.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 text-center bg-navy text-white" style="background-color: var(--brand-navy);">
+            <div class="container">
+                <h2 class="fw-bold mb-3">Đồng Hành Cùng Trading Insight</h2>
+                <p class="lead mb-4 opacity-75">Trade như cũ – Phí được hoàn – Tăng lợi nhuận ngay hôm nay.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="https://t.me/datnguyen_tis" class="btn btn-orange btn-lg rounded-pill px-5 fw-bold text-white shadow">Liên Hệ Ngay</a>
+                    <a href="index.html#san-giao-dich" class="btn btn-outline-light btn-lg rounded-pill px-5 fw-bold">Xem Sàn Hỗ Trợ</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="floating-socials-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        loadComponent("header-placeholder", "components/header.html");
+        loadComponent("footer-placeholder", "components/footer.html");
+        loadComponent("floating-socials-placeholder", "components/floating-socials.html");
+    </script>
+</body>
+
+</html>
