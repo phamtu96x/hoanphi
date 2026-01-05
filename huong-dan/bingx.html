@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/DN.png">
     <title>Hướng Dẫn BingX - Trading Insight</title>
 
-    <link rel="icon" type="image/png" href="../images/favicon.png">
-
+    <link rel="icon" type="image/png" href="../components/images/logopro.png">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="../css/style.css">
 
@@ -19,24 +19,21 @@
            CSS RIÊNG CHO BINGX (PHỐI MÀU THEO ẢNH MẪU + BRAND)
            ================================================================= */
         
-         :root {
+        :root {
             --brand-navy: #0a192f;
             --brand-orange: #fd7e14;
             /* Màu theo mẫu ảnh BingX */
-            --bingx-teal: #00C087;
-            /* Case 1 - Đăng ký mới */
-            --bingx-blue: #0052FF;
-            /* Case 2 - Gửi UID */
-            --bingx-red: #FF5A5F;
-            /* Case 3 - Chuyển danh tính */
+            --bingx-teal: #00C087; /* Case 1 - Đăng ký mới */
+            --bingx-blue: #0052FF; /* Case 2 - Gửi UID */
+            --bingx-red: #FF5A5F;  /* Case 3 - Chuyển danh tính */
         }
         
         body {
             background-color: #FAFAFA;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        /* Tiêu đề trang (Brand Identity) */
         
+        /* Tiêu đề trang */
         .guide-title {
             text-align: center;
             margin-top: 40px;
@@ -47,18 +44,17 @@
         }
         
         .guide-title span {
-            color: #0056b3;
+            color: #0056b3; /* Màu xanh Logo BingX */
             text-shadow: 1px 1px 0 #fff;
         }
-        /* Màu xanh Logo BingX */
         
         .guide-subtitle {
             text-align: center;
             color: #666;
             margin-bottom: 50px;
         }
-        /* Card Style Chung */
         
+        /* Card Style */
         .guide-card {
             background: white;
             border-radius: 16px;
@@ -68,20 +64,8 @@
             margin-bottom: 30px;
             position: relative;
         }
-        /* Badge HP */
         
-        .hp-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-weight: 800;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-        }
         /* Header Card */
-        
         .card-header-title {
             font-size: 1.2rem;
             font-weight: 800;
@@ -90,8 +74,8 @@
             align-items: center;
             gap: 10px;
         }
-        /* Step Circle */
         
+        /* Step Circle */
         .step-circle {
             width: 24px;
             height: 24px;
@@ -104,8 +88,8 @@
             margin-right: 8px;
             font-size: 13px;
         }
-        /* Copy Box */
         
+        /* Copy Box */
         .copy-box {
             background-color: #F3F5F7;
             border-radius: 8px;
@@ -127,8 +111,9 @@
             color: #999;
             transition: 0.2s;
         }
-        /* Benefit Box */
+        .copy-icon:hover { color: var(--bingx-teal); transform: scale(1.1); }
         
+        /* Benefit Box */
         .benefit-box {
             border-radius: 12px;
             padding: 20px;
@@ -156,8 +141,8 @@
             align-items: flex-start;
             gap: 8px;
         }
-        /* Warning Box */
         
+        /* Warning Box */
         .warning-box {
             background-color: #FFF9E6;
             border: 1px solid #FEEBC8;
@@ -167,12 +152,13 @@
             margin-top: 15px;
             font-size: 0.9rem;
         }
-        /* Buttons */
         
+        /* Buttons */
         .action-btns {
             display: flex;
             gap: 10px;
             margin-top: 25px;
+            flex-wrap: wrap;
         }
         
         .btn-zalo {
@@ -186,7 +172,9 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            transition: 0.3s;
         }
+        .btn-zalo:hover { background-color: #0e6b38; color: white; transform: translateY(-2px); }
         
         .btn-video {
             background: white;
@@ -199,114 +187,29 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            transition: 0.3s;
         }
+        .btn-video:hover { background-color: #f0fdfd; }
         
-        .btn-video:hover {
-            background-color: #f0fdfd;
-        }
-        /* Button Gửi UID (Case 2) */
-        
-        .btn-send-uid {
-            background-color: #118144;
-            color: white;
-            font-weight: 700;
-            padding: 10px 30px;
-            border-radius: 6px;
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            margin-top: 15px;
-            transition: 0.2s;
-        }
-        
-        .btn-send-uid:hover {
-            background-color: #0c6b38;
-            color: white;
-        }
         /* --- THEME COLORS --- */
+        
         /* THEME 1: TEAL (Case 1) */
+        .theme-teal { border-top: 4px solid var(--bingx-teal); }
+        .theme-teal .card-header-title { color: var(--bingx-teal); }
+        .theme-teal .step-circle { background-color: var(--bingx-teal); }
+        .theme-teal .copy-text { color: var(--bingx-teal); }
+        .theme-teal .benefit-box { background-color: #E6FFFA; border: 1px solid #B7F5E8; }
+        .theme-teal .benefit-title, .theme-teal .check-icon { color: var(--bingx-teal); }
         
-        .theme-teal {
-            border-top: 4px solid var(--bingx-teal);
-        }
+        /* THEME 3: RED (Case 2 - Chuyển danh tính) */
+        .theme-red { border-top: 4px solid var(--bingx-red); }
+        .theme-red .card-header-title { color: var(--bingx-red); }
+        .theme-red .step-circle { background-color: var(--bingx-red); }
+        .theme-red .copy-text { color: #555; }
+        .theme-red .benefit-box { background-color: #E6FFFA; border: 1px solid #B7F5E8; }
+        .theme-red .benefit-title, .theme-red .check-icon { color: var(--bingx-teal); }
         
-        .theme-teal .card-header-title {
-            color: var(--bingx-teal);
-        }
-        
-        .theme-teal .step-circle {
-            background-color: var(--bingx-teal);
-        }
-        
-        .theme-teal .copy-text {
-            color: var(--bingx-teal);
-        }
-        
-        .theme-teal .benefit-box {
-            background-color: #E6FFFA;
-            border: 1px solid #B7F5E8;
-        }
-        
-        .theme-teal .benefit-title,
-        .theme-teal .check-icon {
-            color: var(--bingx-teal);
-        }
-        
-        .theme-teal .hp-badge {
-            background-color: #61DBC3;
-        }
-        /* THEME 2: BLUE (Case 2) */
-        
-        .theme-blue {
-            border-top: 4px solid var(--bingx-blue);
-        }
-        
-        .theme-blue .card-header-title {
-            color: var(--bingx-blue);
-        }
-        
-        .theme-blue .hp-badge {
-            background-color: #8CA0FF;
-        }
-        /* THEME 3: RED (Case 3) */
-        
-        .theme-red {
-            border-top: 4px solid var(--bingx-red);
-        }
-        
-        .theme-red .card-header-title {
-            color: var(--bingx-red);
-        }
-        
-        .theme-red .step-circle {
-            background-color: var(--bingx-red);
-        }
-        
-        .theme-red .copy-text {
-            color: #555;
-        }
-        
-        .theme-red .benefit-box {
-            background-color: #E6FFFA;
-            border: 1px solid #B7F5E8;
-        }
-        /* Hưởng ưu đãi xanh ngọc */
-        
-        .theme-red .benefit-title,
-        .theme-red .check-icon {
-            color: var(--bingx-teal);
-        }
-        
-        .theme-red .hp-badge {
-            background-color: #61DBC3;
-        }
-        
-        main {
-            flex: 1;
-            padding-bottom: 50px;
-        }
+        main { flex: 1; padding-bottom: 50px; }
     </style>
 </head>
 
@@ -324,8 +227,6 @@
                 <div class="col-lg-10">
 
                     <div class="guide-card theme-teal">
-                        <!-- <div class="hp-badge">HP</div> -->
-
                         <div class="card-header-title">
                             <i class="bi bi-person-plus-fill"></i> Trường Hợp 1: ĐĂNG KÍ TÀI KHOẢN MỚI
                         </div>
@@ -362,13 +263,9 @@
                         </div>
                     </div>
 
-
-
                     <div class="guide-card theme-red">
-                        <div class="hp-badge">HP</div>
-
                         <div class="card-header-title">
-                            <i class="bi bi-trash3-fill"></i> Trường Hợp 2: KH CÓ TK VÀ ĐÃ ĐK DƯỚI REF KHÁC
+                            <i class="bi bi-trash3-fill"></i>Trường hợp 2: Khách hàng đã có tài khoản và đã đăng ký dưới Ref khác
                         </div>
                         <p class="text-muted small">Hướng dẫn chuyển ref BingX về Trading Insight để nhận hoàn 50% phí giao dịch vĩnh viễn.</p>
 
@@ -428,9 +325,30 @@
     <div id="floating-socials-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
 
     <script>
+        function loadComponent(placeholderId, filePath) {
+            fetch(filePath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Lỗi tải: ${filePath}`);
+                    return response.text();
+                })
+                .then(data => {
+                    // SỬA LỖI ĐƯỜNG DẪN ẢNH/LINK CHO HEADER/FOOTER
+                    let fixedData = data.replaceAll('src="images/', 'src="../images/');
+                    
+                    fixedData = fixedData.replaceAll('href="/"', 'href="../index.html"');
+                    
+                    fixedData = fixedData.replaceAll('href="/#', 'href="../index.html#');
+
+                    fixedData = fixedData.replaceAll('href="css/', 'href="../css/');
+
+                    document.getElementById(placeholderId).innerHTML = fixedData;
+                })
+                .catch(error => console.error('Không thể tải component:', error));
+        }
+
+        // Tải các thành phần (Lưu ý dấu ../ để lùi ra thư mục gốc)
         loadComponent("header-placeholder", "../components/header.html");
         loadComponent("footer-placeholder", "../components/footer.html");
         loadComponent("floating-socials-placeholder", "../components/floating-socials.html");

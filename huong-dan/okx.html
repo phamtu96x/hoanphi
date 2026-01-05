@@ -6,303 +6,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hướng Dẫn OKX - Trading Insight</title>
 
-    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="icon" type="image/png" href="../components/images/logopro.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="../css/style.css">
 
     <style>
         /* =================================================================
-           CSS RIÊNG CHO OKX (PHỐI MÀU THEO ẢNH MẪU + BRAND)
+           CSS RIÊNG CHO OKX
            ================================================================= */
-        
-         :root {
+        :root {
             --brand-navy: #0a192f;
             --brand-orange: #fd7e14;
-            /* Màu theo mẫu ảnh OKX */
-            --okx-green: #00A980;
-            /* Case 1 */
-            --okx-blue: #4D69FF;
-            /* Case 2 */
-            --okx-red: #FF5A5F;
-            /* Case 3 */
+            /* Màu OKX */
+            --okx-green: #00A980; /* Case 1 */
+            --okx-blue: #4D69FF;  /* Case 2 */
+            --okx-red: #FF5A5F;   /* Case 3 */
         }
-        
+
         body {
             background-color: #FAFAFA;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        /* Tiêu đề trang (Giữ Brand Identity) */
-        
+
+        /* Tiêu đề */
         .guide-title {
-            text-align: center;
-            margin-top: 40px;
-            margin-bottom: 10px;
-            font-weight: 800;
-            font-size: 2.5rem;
-            color: var(--brand-navy);
+            text-align: center; margin-top: 40px; margin-bottom: 10px;
+            font-weight: 800; font-size: 2.5rem; color: var(--brand-navy);
         }
-        
-        .guide-title span {
-            color: var(--brand-navy);
-        }
-        
-        .guide-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 50px;
-        }
-        /* Card Style Chung */
-        
+        .guide-title span { color: var(--brand-navy); } /* Giữ màu Navy hoặc Đen theo brand OKX */
+        .guide-subtitle { text-align: center; color: #666; margin-bottom: 50px; }
+
+        /* Card Style - ĐÃ FIX LỖI HEIGHT */
         .guide-card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            border: 1px solid #EAEAEA;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            margin-bottom: 30px;
-            position: relative;
+            background: white; border-radius: 16px; padding: 30px;
+            border: 1px solid #EAEAEA; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-bottom: 30px; position: relative;
+            /* Bỏ height: 100% để tránh lỗi layout */
         }
-        /* Badge HP */
-        
-        .hp-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-weight: 800;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-        }
-        /* Header Card */
-        
+
         .card-header-title {
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.2rem; font-weight: 800; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 10px;
         }
-        /* Step Circle Number */
-        
+
         .step-circle {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-            margin-right: 8px;
-            font-size: 13px;
+            width: 24px; height: 24px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-weight: bold; color: white; margin-right: 8px; font-size: 13px;
         }
+
         /* Copy Box */
-        
         .copy-box {
-            background-color: #F3F5F7;
-            border-radius: 8px;
-            padding: 12px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0 20px 0;
-            border: 1px solid #E1E4E8;
+            background-color: #F3F5F7; border-radius: 8px; padding: 12px 15px;
+            display: flex; justify-content: space-between; align-items: center;
+            margin: 10px 0 20px 0; border: 1px solid #E1E4E8;
         }
-        
-        .copy-text {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-        
-        .copy-icon {
-            cursor: pointer;
-            color: #999;
-            transition: 0.2s;
-        }
+        .copy-text { font-weight: 700; font-size: 1.1rem; }
+        .copy-icon { cursor: pointer; color: #999; transition: 0.2s; }
+        .copy-icon:hover { transform: scale(1.1); }
+
         /* Benefit Box */
-        
-        .benefit-box {
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        
-        .benefit-title {
-            font-weight: 700;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .benefit-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: 0.95rem;
-        }
-        
-        .benefit-list li {
-            margin-bottom: 5px;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-        /* --- THEME COLORS --- */
-        /* THEME 1: GREEN (New Account) */
-        
-        .theme-green .card-header-title {
-            color: var(--okx-green);
-        }
-        
-        .theme-green .step-circle {
-            background-color: var(--okx-green);
-        }
-        
-        .theme-green .copy-text {
-            color: var(--okx-green);
-        }
-        
-        .theme-green .benefit-box {
-            background-color: #E6FFFA;
-            border: 1px solid #B7F5E8;
-        }
-        
-        .theme-green .benefit-title,
-        .theme-green .check-icon {
-            color: var(--okx-green);
-        }
-        
-        .theme-green .hp-badge {
-            background-color: #61DBC3;
-        }
-        /* Màu nhạt hơn chút cho badge */
-        /* THEME 2: BLUE (Transfer Ref) */
-        
-        .theme-blue .card-header-title {
-            color: var(--okx-blue);
-        }
-        
-        .theme-blue .step-circle {
-            background-color: var(--okx-blue);
-        }
-        
-        .theme-blue .benefit-box {
-            background-color: #EEF2FF;
-            border: 1px solid #Dbeafe;
-        }
-        
-        .theme-blue .benefit-title,
-        .theme-blue .check-icon {
-            color: var(--okx-blue);
-        }
-        
-        .theme-blue .hp-badge {
-            background-color: #8CA0FF;
-        }
-        /* Form Simulation for Case 2 */
-        
+        .benefit-box { border-radius: 12px; padding: 20px; margin-top: 20px; }
+        .benefit-title { font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .benefit-list { list-style: none; padding: 0; margin: 0; font-size: 0.95rem; }
+        .benefit-list li { margin-bottom: 5px; display: flex; align-items: flex-start; gap: 8px; }
+
+        /* Form Simulation */
         .form-sim {
-            background: #F9FAFB;
-            border: 1px solid #eee;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            color: #555;
+            background: #F9FAFB; border: 1px solid #eee; padding: 15px;
+            border-radius: 8px; font-size: 0.9rem; color: #555;
         }
-        
         .form-sim-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            padding-bottom: 8px;
-            border-bottom: 1px dashed #eee;
+            display: flex; justify-content: space-between; margin-bottom: 8px;
+            padding-bottom: 8px; border-bottom: 1px dashed #eee;
         }
-        
-        .form-sim strong {
-            color: #333;
-        }
-        /* THEME 3: RED (Delete Account) */
-        
-        .theme-red .card-header-title {
-            color: var(--okx-red);
-        }
-        
-        .theme-red .step-circle {
-            background-color: var(--okx-red);
-        }
-        
-        .theme-red .copy-text {
-            color: var(--okx-red);
-        }
-        
-        .theme-red .benefit-box {
-            background-color: #FFF5F5;
-            border: 1px solid #FED7D7;
-        }
-        
-        .theme-red .benefit-title,
-        .theme-red .check-icon {
-            color: var(--okx-red);
-        }
-        
-        .theme-red .hp-badge {
-            background-color: #FF8E92;
-        }
-        /* Warning Box for Case 3 */
-        
-        .warning-box {
-            background-color: #FFF9E6;
-            border: 1px solid #FEEBC8;
-            color: #975A16;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-size: 0.9rem;
-        }
+        .form-sim strong { color: #333; }
+
         /* Buttons */
-        
-        .action-btns {
-            display: flex;
-            gap: 10px;
-            margin-top: 25px;
-        }
-        
+        .action-btns { display: flex; gap: 10px; margin-top: 25px; flex-wrap: wrap; }
         .btn-zalo {
-            background: #118144;
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            background: #118144; color: white; border: none; padding: 8px 20px;
+            border-radius: 6px; font-weight: 600; text-decoration: none;
+            display: flex; align-items: center; gap: 5px; transition: 0.3s;
         }
+        .btn-zalo:hover { background-color: #0e6b38; color: white; transform: translateY(-2px); }
         
         .btn-video {
-            background: white;
-            color: #008080;
-            border: 1px solid #008080;
-            padding: 8px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            background: white; color: #008080; border: 1px solid #008080;
+            padding: 8px 20px; border-radius: 6px; font-weight: 600;
+            text-decoration: none; display: flex; align-items: center; gap: 5px; transition: 0.3s;
         }
-        
-        main {
-            flex: 1;
-            padding-bottom: 50px;
-        }
+        .btn-video:hover { background-color: #f0fdfd; }
+
+        /* --- THEME 1: GREEN --- */
+        .theme-green { border-top: 4px solid var(--okx-green); }
+        .theme-green .card-header-title { color: var(--okx-green); }
+        .theme-green .step-circle { background-color: var(--okx-green); }
+        .theme-green .copy-text { color: var(--okx-green); }
+        .theme-green .copy-icon:hover { color: var(--okx-green); }
+        .theme-green .benefit-box { background-color: #E6FFFA; border: 1px solid #B7F5E8; }
+        .theme-green .benefit-title, .theme-green .check-icon { color: var(--okx-green); }
+
+        /* --- THEME 2: BLUE --- */
+        .theme-blue { border-top: 4px solid var(--okx-blue); }
+        .theme-blue .card-header-title { color: var(--okx-blue); }
+        .theme-blue .step-circle { background-color: var(--okx-blue); }
+        .theme-blue .benefit-box { background-color: #EEF2FF; border: 1px solid #Dbeafe; }
+        .theme-blue .benefit-title, .theme-blue .check-icon { color: var(--okx-blue); }
+
+        /* --- THEME 3: RED --- */
+        .theme-red { border-top: 4px solid var(--okx-red); }
+        .theme-red .card-header-title { color: var(--okx-red); }
+        .theme-red .step-circle { background-color: var(--okx-red); }
+        .theme-red .copy-text { color: var(--okx-red); }
+        .theme-red .copy-icon:hover { color: var(--okx-red); }
+        .theme-red .benefit-box { background-color: #FFF5F5; border: 1px solid #FED7D7; }
+        .theme-red .benefit-title, .theme-red .check-icon { color: var(--okx-red); }
+
+        main { flex: 1; padding-bottom: 50px; }
     </style>
 </head>
 
@@ -320,8 +145,6 @@
                 <div class="col-lg-10">
 
                     <div class="guide-card theme-green">
-                        <!-- <div class="hp-badge">HP</div> -->
-
                         <div class="card-header-title">
                             <i class="bi bi-person-plus-fill"></i> Trường Hợp 1: Đăng ký tài khoản OKX mới
                         </div>
@@ -336,7 +159,7 @@
                         </div>
 
                         <div class="mb-2 fw-bold text-dark">
-                            <span class="step-circle">2</span> Thực hiện KYC bằng giấy tờ tùy thân (CCCD, GPLX hoặc Hộ chiếu).
+                            <span class="step-circle">2</span> Thực hiện KYC bằng giấy tờ tùy thân.
                         </div>
                         <div class="mb-2 fw-bold text-dark">
                             <span class="step-circle">3</span> KYC thành công ➝ Nạp tiền và bắt đầu giao dịch.
@@ -358,70 +181,8 @@
                         </div>
                     </div>
 
-                    <div class="guide-card theme-blue">
-                        <!-- <div class="hp-badge">HP</div> -->
-
-                        <div class="card-header-title">
-                            <i class="bi bi-pin-angle-fill"></i> Trường Hợp 2: NẾU KH ĐÃ CÓ TK NHƯNG CHƯA ĐK DƯỚI REF KHÁC
-                        </div>
-
-                        <div class="alert alert-primary py-2 px-3 small border-0 bg-opacity-10 bg-primary text-primary fw-bold rounded-3 mb-3">
-                            <i class="bi bi-lightbulb-fill me-2"></i> Đối tượng áp dụng: Tài khoản Organic (không qua link QC), ít giao dịch 3-6 tháng.
-                        </div>
-
-                        <div class="mb-3 fw-bold text-dark">
-                            <span class="step-circle">1</span> Hướng dẫn chuyển link ref nhận Hoàn phí trên tài khoản OKX Cũ Đang Dùng:
-                        </div>
-
-                        <div class="form-sim">
-                            <div class="mb-2 text-muted small fw-bold">B1: Vào Link này (Đăng nhập trước)</div>
-                            <div class="input-group input-group-sm mb-3">
-                                <input type="text" class="form-control bg-white" value="https://www.okx.com/ul/J6l2R5" readonly>
-                                <button class="btn btn-outline-secondary" onclick="copyCode('https://www.okx.com/ul/J6l2R5')"><i class="bi bi-clipboard"></i></button>
-                            </div>
-
-                            <div class="mb-2 text-muted small fw-bold">B2: Điền Form thông tin</div>
-                            <div class="bg-white p-2 border rounded">
-                                <div class="form-sim-row">
-                                    <span>Mã mời:</span>
-                                    <strong>tradinginsight <i class="bi bi-copy cursor-pointer text-primary ms-1" onclick="copyCode('tradinginsight')"></i></strong>
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <span>Lý do tham gia:</span>
-                                    <em class="small text-muted mt-1">I was invited by an affiliate but forgot to add the code when signing up tradinginsight</em>
-                                    <div class="text-end mt-1"><i class="bi bi-copy cursor-pointer text-primary" onclick="copyCode('I was invited by an affiliate but forgot to add the code when signing up tradinginsight')"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-2 fw-bold small text-dark ms-2">B3: Nhấn Submit là xong (1 ngày sau có kết quả).</div>
-
-                        <div class="benefit-box">
-                            <div class="benefit-title">
-                                <i class="bi bi-gift-fill"></i> Cơ chế hoàn phí
-                            </div>
-                            <ul class="benefit-list">
-                                <li><i class="bi bi-check-lg check-icon"></i> <strong>20%</strong> hoàn tự động sau mỗi giao dịch.</li>
-                                <li><i class="bi bi-check-lg check-icon"></i> <strong>30%</strong> hoàn vào ngày cuối tháng qua UID.</li>
-                            </ul>
-                        </div>
-
-                        <div class="warning-box">
-                            <i class="bi bi-exclamation-triangle-fill me-1"></i> <strong>Lưu ý:</strong>
-                            <ul class="mb-0 ps-3 mt-1 small">
-                                <li>Đợi phản hồi từ sàn trong vòng 7 ngày.</li>
-                                <li>Gửi email bằng chính email đã đăng ký tài khoản OKX.</li>
-                            </ul>
-                        </div>
-
-                        <div class="action-btns">
-                            <a href="https://zalo.me/SĐT_CỦA_BẠN" target="_blank" class="btn-zalo"><i class="bi bi-telephone-fill"></i> Hỗ trợ Zalo</a>
-                            <a href="#" class="btn-video"><i class="bi bi-play-circle"></i> Xem video hướng dẫn</a>
-                        </div>
-                    </div>
 
                     <div class="guide-card theme-red">
-                        <!-- <div class="hp-badge">HP</div> -->
-
                         <div class="card-header-title">
                             <i class="bi bi-trash3-fill"></i> Trường Hợp 2: Đã có TK và có Ref khác
                         </div>
@@ -459,12 +220,8 @@
                             </ul>
                         </div>
 
-                        <div class="warning-box">
-                            <i class="bi bi-exclamation-octagon-fill me-1"></i> <strong>Lưu ý quan trọng:</strong>
-                            <ul class="mb-0 ps-3 mt-1 small">
-                                <li>Nên dùng Gmail mới và SĐT mới để đăng ký.</li>
-                                <li>Nên dùng giấy tờ KYC khác loại với tài khoản cũ (Ví dụ cũ dùng CCCD thì mới dùng Hộ chiếu) để duyệt nhanh.</li>
-                            </ul>
+                        <div class="alert alert-danger py-2 px-3 small border-0 bg-opacity-10 bg-danger text-danger fw-bold rounded-3 mt-3">
+                            <i class="bi bi-exclamation-octagon-fill me-1"></i> Lưu ý quan trọng: Nên dùng Gmail mới, SĐT mới và giấy tờ KYC khác loại (VD cũ dùng CCCD thì mới dùng Hộ chiếu).
                         </div>
 
                         <div class="action-btns">
@@ -485,6 +242,25 @@
     <script src="../js/main.js"></script>
 
     <script>
+        function loadComponent(placeholderId, filePath) {
+            fetch(filePath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Lỗi tải: ${filePath}`);
+                    return response.text();
+                })
+                .then(data => {
+                    // SỬA LỖI ĐƯỜNG DẪN ẢNH/LINK
+                    let fixedData = data.replaceAll('src="images/', 'src="../images/');
+                    fixedData = fixedData.replaceAll('href="/"', 'href="../index.html"');
+                    fixedData = fixedData.replaceAll('href="/#', 'href="../index.html#');
+                    fixedData = fixedData.replaceAll('href="css/', 'href="../css/');
+
+                    document.getElementById(placeholderId).innerHTML = fixedData;
+                })
+                .catch(error => console.error('Không thể tải component:', error));
+        }
+
+        // Tải các thành phần
         loadComponent("header-placeholder", "../components/header.html");
         loadComponent("footer-placeholder", "../components/footer.html");
         loadComponent("floating-socials-placeholder", "../components/floating-socials.html");
@@ -496,4 +272,4 @@
     </script>
 </body>
 
-</html>
+</html> 

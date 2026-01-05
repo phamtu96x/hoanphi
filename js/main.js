@@ -1,138 +1,178 @@
 // js/main.js
 
-// 1. HÀM RENDER GIAO DIỆN (Tự động vẽ HTML)
+/**
+ * 1. HÀM RENDER (Hiển thị danh sách sàn)
+ * @param {Array} data - Mảng dữ liệu các sàn cần hiển thị
+ */
+/**
+ /**
+ * 1. HÀM RENDER (CẬP NHẬT: Tên sàn cũng là link đăng ký)
+ */
+// js/main.js
+// js/main.js
+
 function renderExchanges(data) {
-    const container = document.getElementById('exchange-list-container');
-    if (!container) return; // Nếu không tìm thấy chỗ chứa thì dừng
+    const container = document.getElementById('exchange-grid');
+    
+    if (!container) return;
 
-    container.innerHTML = ''; // Xóa sạch nội dung cũ
+    container.innerHTML = '';
+    container.className = 'row g-4';
 
+    if (data.length === 0) {
+        container.innerHTML = `
+            <div class="col-12 text-center py-5">
+                <p class="text-muted">Không tìm thấy kết quả phù hợp.</p>
+            </div>`;
+        return;
+    }
+
+    let htmlContent = '';
     data.forEach(item => {
-        // Xử lý nhãn ưu tiên (Ngôi sao)
-        let priorityBadge = '';
+        // 1. Xác định nhãn Hoàn phí
+        let refundLabel = 'Hoàn phí:';
+        if (item.tag === 'forex') refundLabel = 'Backcom:';
+        if (item.tag === 'dex') refundLabel = 'Tiện ích:';
+
+        // 2. Xử lý link hướng dẫn
+        const guideHtml = item.linkGuide && item.linkGuide !== '#' 
+            ? `<a href="${item.linkGuide}" class="guide-link">Xem hướng dẫn chi tiết &rarr;</a>`
+            : `<span class="guide-link text-muted" style="cursor:default; opacity:0.5">Đang cập nhật hướng dẫn</span>`;
+
+        // 3. XỬ LÝ BADGE & NGÔI SAO ƯU TIÊN
+        let badgeContent = item.badge; 
         if (item.isPriority) {
-            // Forex nền tối, Crypto nền sáng mờ
-            const badgeClass = item.tag === 'forex' ? 'bg-dark bg-opacity-50' : 'bg-white bg-opacity-25';
-            priorityBadge = `
-                <span class="badge ${badgeClass} text-white position-absolute top-0 start-0 mt-2 ms-2 d-flex align-items-center px-2 py-1 rounded-pill shadow-sm" style="font-size: 11px; backdrop-filter: blur(2px);">
-                    <i class="bi bi-star-fill text-warning me-1"></i> Ưu tiên
-                </span>
-            `;
+            badgeContent = `<i class="fa-solid fa-star text-warning me-1"></i> ${item.badge}`;
         }
 
-        // Màu chữ cho Badge loại sàn
-        const badgeColorClass = item.tag === 'forex' ? 'text-dark' : '';
+        // 4. MỚI: TÍNH TOÁN DÒNG VÍ DỤ (Phí 100$ hoàn X$)
+        let exampleLine = '';
+        if (item.refundRate.includes('%')) {
+            // Lấy số từ chuỗi "50%" -> 50
+            const rateNum = parseInt(item.refundRate);
+            if (!isNaN(rateNum)) {
+                // Tính toán: 100 * tỷ lệ
+                const refundAmount = Math.round(100 * (rateNum / 100));
+                
+                // Tạo dòng HTML hiển thị
+                exampleLine = `
+                    <div class="text-center mb-3" style="font-size: 0.9rem; color: #666;">
+                        (Ví dụ: Phí 100$ sẽ được hoàn <span class="fw-bold text-success">${refundAmount}$</span>)
+                    </div>
+                `;
+            }
+        } else {
+            // Nếu không phải % (ví dụ Web3 Tối ưu Gas), có thể để trống hoặc hiện text khác
+            // Ở đây ta để trống để giữ giao diện sạch
+            exampleLine = '<div class="mb-3"></div>';
+        }
 
-        // HTML chuẩn (Form nhỏ gọn, Text căn giữa trục tâm)
-        const html = `
-            <div class="col-lg-4 col-md-6 exchange-item-target" data-tag="${item.tag}" >
-                <div class="exchange-card h-200 border rounded-4 overflow-hidden shadow-sm">
-                    <div class="exchange-logo-container d-flex align-items-center justify-content-center position-relative" style="background-color: ${item.colorBg}; height: 100px;">
-                        ${priorityBadge}
-                        <span class="exchange-badge ${badgeColorClass}" style="font-size: 10px; padding: 4px 8px;">${item.badge}</span>
-                        
-                        <div class="exchange-logo-box bg-white rounded-3 p-1">
-                            <a href="${item.linkReg}" target="_blank" class="d-block">
-                                <img src="${item.logo}" alt="${item.name}" style="width: 40px;">
+        htmlContent += `
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="exchange-card h-100 d-flex flex-column">
+                    <div class="exchange-logo-container">
+                        <span class="exchange-badge shadow-sm">${badgeContent}</span>
+                        <div class="exchange-logo-box">
+                            <a href="${item.linkReg}" target="_blank">
+                                <img src="${item.logo}" alt="${item.name}">
                             </a>
                         </div>
                     </div>
-                    
-                    <div class="p-3 bg-white text-center">
-                        <h5 class="fw-bold mb-1">
-                            <a href="${item.linkReg}" target="_blank" class="text-decoration-none text-dark">
+
+                    <div class="p-4 pt-3 flex-grow-1 d-flex flex-column">
+                        <h4 class="fw-bold text-center mb-1">
+                            <a href="${item.linkReg}" target="_blank" class="text-decoration-none" style="color: var(--brand-navy); transition: color 0.2s;" onmouseover="this.style.color='#F26D21'" onmouseout="this.style.color='#1D3E61'">
                                 ${item.name}
                             </a>
-                        </h5>
+                        </h4>
+                        
+                        <div class="text-center mb-1">
+                            <span class="refund-highlight">
+                                ${refundLabel} ${item.refundRate}
+                            </span>
+                        </div>
 
-                        <p class="text-success fw-bold small mb-3">Hoàn phí: ${item.refundRate}</p>
-
-                        <div class="border border-dashed rounded bg-light mb-2 py-2 px-2">
-                            <div class="row g-0 align-items-center">
-                                <div class="col-3 text-start"><span class="text-muted small" style="font-size: 12px;">Loại:</span></div>
-                                <div class="col-6 text-center"><span class="fw-bold text-dark small text-nowrap" style="font-size: 13px;">${item.type}</span></div>
-                                <div class="col-3"></div>
+                        ${exampleLine}
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="text-muted small">${item.codeLabel}:</span>
+                            </div>
+                            <div class="referral-code d-flex justify-content-between align-items-center cursor-pointer" onclick="copyToClipboard('${item.code}')" title="Sao chép mã">
+                                <span class="fw-bold text-orange text-truncate me-2">${item.code}</span>
+                                <i class="fa-regular fa-copy text-muted"></i>
                             </div>
                         </div>
 
-                        <div class="border border-dashed rounded bg-light mb-3 py-2 px-2">
-                            <div class="row g-0 align-items-center">
-                                <div class="col-3 text-start"><span class="text-muted small" style="font-size: 12px;">CODE:</span></div>
-                                <div class="col-6 text-center"><strong class="text-dark small text-nowrap" style="font-size: 13px;">${item.code}</strong></div>
-                                <div class="col-3 text-end"><i class="bi bi-copy cursor-pointer text-primary" style="font-size: 13px;" onclick="copyToClipboard('${item.code}')"></i></div>
-                            </div>
+                        <div class="mt-auto pt-2 text-center">
+                            <a href="${item.linkReg}" target="_blank" class="btn-register text-decoration-none">
+                                Đăng ký ngay
+                            </a>
+                            ${guideHtml}
                         </div>
-
-                        <a href="${item.linkReg}" target="_blank" class="btn btn-primary w-100 fw-bold btn-sm mb-2 py-2">Đăng ký ngay</a>
-                        <a href="${item.linkGuide}" target="_blank" class="text-muted small text-decoration-underline" style="font-size: 12px;">Xem hướng dẫn chi tiết →</a>
                     </div>
                 </div>
             </div>
         `;
-        container.innerHTML += html;
     });
+
+    container.innerHTML = htmlContent;
 }
 
-// 2. HÀM LỌC SÀN (Filter)
-function appFilterExchange(category, clickedBtn) {
-    // Đổi màu nút
-    const allBtns = document.querySelectorAll('.filter-btn');
-    allBtns.forEach(btn => {
+/**
+ * 2. HÀM LỌC (FILTER)
+ */
+function filterExchange(tag) {
+    const allButtons = document.querySelectorAll('.filter-btn');
+    
+    allButtons.forEach(btn => {
+        btn.classList.remove('active');
         btn.classList.remove('btn-primary');
-        btn.classList.add('btn-outline-secondary');
-    });
-    clickedBtn.classList.remove('btn-outline-secondary');
-    clickedBtn.classList.add('btn-primary');
-
-    // Lọc hiển thị
-    const allItems = document.querySelectorAll('.exchange-item-target');
-    allItems.forEach(item => {
-        const itemTag = item.getAttribute('data-tag');
-        if (category === 'all' || itemTag === category) {
-            item.classList.remove('d-none');
-            // Reset animation
-            item.style.animation = 'none';
-            item.offsetHeight; /* trigger reflow */
-            item.style.animation = 'fadeIn 0.5s';
-        } else {
-            item.classList.add('d-none');
+        btn.classList.add('btn-outline-secondary'); // Đổi về màu xám khi không chọn
+        
+        // Kiểm tra nút đang bấm
+        if (btn.getAttribute('onclick').includes(`'${tag}'`)) {
+            btn.classList.add('active');
+            btn.classList.remove('btn-outline-secondary');
+            btn.classList.add('btn-primary'); // Màu cam khi chọn
         }
     });
-}
 
-// 3. HÀM COPY CODE
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        alert("Đã sao chép mã: " + text);
-    }).catch(err => {
-        console.error('Lỗi sao chép: ', err);
-    });
-}
-
-// 4. HÀM LOAD COMPONENT (Header/Footer)
-function loadComponent(id, file) {
-    fetch(file)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById(id).innerHTML = data;
-        })
-        .catch(error => console.error('Error loading component:', error));
-}
-
-// CHẠY KHI WEB TẢI XONG
-document.addEventListener('DOMContentLoaded', () => {
-    // Vẽ danh sách sàn nếu có dữ liệu
-    if (typeof exchangesData !== 'undefined') {
+    if (tag === 'all') {
         renderExchanges(exchangesData);
+    } else {
+        const filtered = exchangesData.filter(item => item.tag === tag);
+        renderExchanges(filtered);
     }
+}
 
-    // Thêm keyframe animation cho bộ lọc
-    const styleSheet = document.createElement("style");
-    styleSheet.innerText = `
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+/**
+ * 3. HÀM COPY
+ */
+function copyToClipboard(text) {
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Đã sao chép mã: ' + text);
+    }).catch(err => {
+        console.error('Không thể sao chép', err);
+    });
+}
+
+// KHỞI CHẠY
+document.addEventListener('DOMContentLoaded', () => {
+    renderExchanges(exchangesData);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Tìm thẻ a có id="linkzalo"
+    const zaloLink = document.getElementById("linkzalo");
+    
+    if (zaloLink) {
+        // Kiểm tra nếu là thiết bị di động
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // Chuyển link sang deep link mở App Zalo
+            // Thay SĐT của bạn vào đây nếu chưa đúng
+            zaloLink.href = "https://zalo.me/0965657519"; 
         }
-    `;
-    document.head.appendChild(styleSheet);
+    }
 });
