@@ -32,7 +32,7 @@ function renderExchanges(data) {
         // 1. Xác định nhãn Hoàn phí
         let refundLabel = 'Hoàn phí:';
         if (item.tag === 'forex') refundLabel = 'Backcom:';
-        if (item.tag === 'dex') refundLabel = 'Tiện ích:';
+        if (item.tag === 'dex') refundLabel = 'Hoàn phí:';
 
         // 2. Xử lý link hướng dẫn
         const guideHtml = item.linkGuide && item.linkGuide !== '#' 

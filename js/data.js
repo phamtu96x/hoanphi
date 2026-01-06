@@ -44,10 +44,10 @@ const exchangesData = [
         logo: "images/binance.png",
         colorBg: "#1e2329",
         badge: "WEB3",
-        refundRate: "20%",
+        refundRate: "30%",
         type: "Ví Web3 / DeFi",
         codeLabel: "Mã mời",
-        code: "HOANPHITIS",
+        code: "BSQ3495A",
         linkReg: "https://web3.binance.com/referral?ref=BSQ3495A",
         linkGuide: "https://web3.binance.com/referral?ref=BSQ3495A"
     },
@@ -68,58 +68,44 @@ const exchangesData = [
         linkGuide: "huong-dan/okx.html"
     },
 
-    // --- 7. EXNESS ---
-    {
-        id: "exness",
-        name: "Exness",
-        tag: "forex",
-        isPriority: true,
-        logo: "images/exness.png",
-        colorBg: "#FFCC00",
-        badge: "Forex Top 1",
-        refundRate: "100%", // Backcom
-        type: "Tự Động Hàng Ngày",
-        codeLabel: "Mã đối tác",
-        code: "z95z0g4oje",
-        linkReg: "https://one.exnessonelink.com/a/z95z0g4oje",
-        linkGuide: "huong-dan/exness.html"
-    },
+
+
 
 
 
     // --- 9. OKX WEB3 (Mới) ---
-    {
-        id: "okx-web3",
-        name: "OKX Web3",
-        tag: "dex",
-        isPriority: true,
-        logo: "images/okx_wallet.jpg",
-        colorBg: "#000000",
-        badge: "WEB3",
-        refundRate: "50%",
-        type: "Ví Web3 / DeFi",
-        codeLabel: "Mã mời",
-        code: "tradinginsight",
-        linkReg: "https://www.okx.com/web3",
-        // linkGuide: "huong-dan/okx.html"
-    },
+    // {
+    //     id: "okx-web3",
+    //     name: "OKX Web3",
+    //     tag: "dex",
+    //     isPriority: true,
+    //     logo: "images/okx_wallet.jpg",
+    //     colorBg: "#000000",
+    //     badge: "WEB3",
+    //     refundRate: "50%",
+    //     type: "Ví Web3 / DeFi",
+    //     codeLabel: "Mã mời",
+    //     code: "tradinginsight",
+    //     linkReg: "https://www.okx.com/web3",
+    //     // linkGuide: "huong-dan/okx.html"
+    // },
 
     // --- 10. MEXC WEB3 (Mới) ---
-    {
-        id: "mexc-web3",
-        name: "MEXC Web3",
-        tag: "dex",
-        isPriority: true,
-        logo: "images/mexc_dex.png",
-        colorBg: "#0e8529",
-        badge: "WEB3",
-        refundRate: "50%",
-        type: "Ví Web3 / DeFi",
-        codeLabel: "Mã mời",
-        code: "mexc-18epb",
-        linkReg: "https://www.mexc.com/web3",
-        // linkGuide: "huong-dan/mexc.html"
-    },
+    // {
+    //     id: "mexc-web3",
+    //     name: "MEXC Web3",
+    //     tag: "dex",
+    //     isPriority: true,
+    //     logo: "images/mexc_dex.png",
+    //     colorBg: "#0e8529",
+    //     badge: "WEB3",
+    //     refundRate: "50%",
+    //     type: "Ví Web3 / DeFi",
+    //     codeLabel: "Mã mời",
+    //     code: "mexc-18epb",
+    //     linkReg: "https://www.mexc.com/web3",
+    //     // linkGuide: "huong-dan/mexc.html"
+    // },
 
     // --- 3. BITGET ---
     {
@@ -136,6 +122,23 @@ const exchangesData = [
         code: "MR08MJ",
         linkReg: "https://partner.bitget.com/bg/MR08MJ",
         linkGuide: "huong-dan/bitget.html"
+    },
+    
+    // --- 7. EXNESS ---
+        {
+        id: "exness",
+        name: "Exness",
+        tag: "forex",
+        isPriority: true,
+        logo: "images/exness.png",
+        colorBg: "#FFCC00",
+        badge: "Forex Top 1",
+        refundRate: "100%", // Backcom
+        type: "Tự Động Hàng Ngày",
+        codeLabel: "Mã đối tác",
+        code: "z95z0g4oje",
+        linkReg: "https://one.exnessonelink.com/a/z95z0g4oje",
+        linkGuide: "huong-dan/exness.html"
     },
 
     // --- 5. MEXC ---
@@ -170,5 +173,5 @@ const exchangesData = [
         code: "HOANPHITIS",
         linkReg: "https://partner.bybit.com/b/HOANPHITIS",
         linkGuide: "huong-dan/bybit.html"
-    }
+    },
 ];

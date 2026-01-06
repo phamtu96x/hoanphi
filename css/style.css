@@ -352,7 +352,11 @@ a {
     transition: all 0.3s ease;
     background: #ffffff;
     border-radius: 24px;
-    border: 1px solid var(--border-color);
+    
+    /* --- SỬA DÒNG NÀY --- */
+    /* Tăng từ 1px lên 2px hoặc 3px để viền dày hơn */
+    border: 3px solid var(--border-color); 
+    
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
@@ -360,6 +364,8 @@ a {
 .exchange-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 25px 50px rgba(29, 62, 97, 0.2) !important;
+    
+    /* Khi di chuột vào, viền sẽ đổi màu cam và giữ nguyên độ dày đã cài đặt ở trên */
     border-color: var(--brand-orange);
 }
 
@@ -1057,5 +1063,54 @@ div.fcta-zalo-mess {
     .fcta-zalo-vi-tri-nut {
         right: 15px;
         bottom: 15px;
+    }
+}
+
+/* ==========================================================================
+   FIX LỖI 2 NÚT BẤM KHÔNG ĐỀU NHAU
+   ========================================================================== */
+
+/* Cấu hình chung cho cả 2 nút Hero */
+.btn-hero-xl {
+    height: 54px; /* Ép chiều cao cố định cho cả 2 */
+    padding: 0 30px !important; /* Độ rộng ngang */
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    
+    /* Dùng Flexbox để căn giữa chữ và icon tuyệt đối */
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    
+    /* Mẹo: Thêm viền trong suốt 2px để bù trừ cho nút có viền */
+    border: 2px solid transparent; 
+    white-space: nowrap; /* Không cho chữ xuống dòng */
+}
+
+/* Tinh chỉnh riêng cho nút Trắng (Cộng đồng) */
+.btn-outline-secondary.btn-hero-xl {
+    border: 2px solid #e5e7eb; /* Viền thật màu xám nhạt */
+    color: var(--brand-navy);
+}
+
+/* Hover cho nút Trắng */
+.btn-outline-secondary.btn-hero-xl:hover {
+    border-color: var(--brand-navy);
+    background-color: var(--brand-navy) !important;
+    color: white !important;
+}
+
+/* Hover cho nút Trắng -> Icon bên trong đổi màu theo */
+.btn-outline-secondary.btn-hero-xl:hover i {
+    color: white !important;
+}
+
+/* Responsive trên Mobile */
+@media (max-width: 768px) {
+    .btn-hero-xl {
+        width: 100%; /* Full màn hình trên điện thoại */
+        height: 50px; /* Nhỏ hơn chút cho gọn */
+        font-size: 1rem;
     }
 }
