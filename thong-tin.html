@@ -290,10 +290,39 @@
     <script src="js/main.js"></script>
 
     <script>
-        loadComponent("header-placeholder", "components/header.html");
-        loadComponent("footer-placeholder", "components/footer.html");
-        loadComponent("floating-socials-placeholder", "components/floating-socials.html");
+        function loadComponent(placeholderId, filePath) {
+            fetch(filePath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Lỗi tải: ${filePath}`);
+                    return response.text();
+                })
+                .then(data => {
+                    // --- ĐÂY LÀ ĐOẠN QUAN TRỌNG ĐỂ SỬA LỖI ĐƯỜNG DẪN ---
+                    // 1. Sửa đường dẫn ảnh: images/ -> ../images/
+                    let fixedData = data.replaceAll('src="images/', 'src="../images/');
+                    
+                    // 2. Sửa link trang chủ: href="/" -> href="../index.html"
+                    fixedData = fixedData.replaceAll('href="/"', 'href="../index.html"');
+                    
+                    // 3. Sửa các link neo (anchor) về trang chủ: href="/#..." -> href="../index.html#..."
+                    fixedData = fixedData.replaceAll('href="/#', 'href="../index.html#');
+
+                    // 4. Sửa link CSS trong header (nếu có): href="css/" -> href="../css/"
+                    fixedData = fixedData.replaceAll('href="css/', 'href="../css/');
+
+                    document.getElementById(placeholderId).innerHTML = fixedData;
+                })
+                .catch(error => console.error('Không thể tải component:', error));
+        }
+
+        // Tải các thành phần (Lưu ý dấu ../ để lùi ra thư mục gốc)
+        loadComponent("header-placeholder", "../components/header.html");
+        loadComponent("footer-placeholder", "../components/footer.html");
+        loadComponent("floating-socials-placeholder", "../components/floating-socials.html");
+
     </script>
+
+        
 </body>
 
 </html>
