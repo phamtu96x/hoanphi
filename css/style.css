@@ -160,7 +160,10 @@ a {
 }
 .icon-spin { animation: spin-infinite 2s linear infinite; display: inline-block; }
 
-/* Menu Links */
+
+/* ==========================================================================
+   MENU LINKS (CẬP NHẬT TRẠNG THÁI ACTIVE)
+   ========================================================================== */
 .navbar-nav .nav-link {
     font-weight: 600;
     color: #536b85;
@@ -169,9 +172,10 @@ a {
     transition: all 0.3s ease;
 }
 
+/* Khi Hover HOẶC khi đang ở trang đó (Active) */
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: var(--brand-orange);
+    color: var(--brand-orange); /* Đổi màu chữ thành cam */
 }
 
 .navbar-nav .nav-link::after {
@@ -180,11 +184,16 @@ a {
     bottom: 0;
     left: 0;
     width: 0%;
-    height: 2px;
+    height: 3px; /* Tăng độ dày lên 3px cho rõ như hình mẫu */
     background-color: var(--brand-orange);
     transition: width 0.3s ease;
 }
-.navbar-nav .nav-link:hover::after { width: 100%; }
+
+/* Khi Hover HOẶC Active thì gạch chân hiện 100% */
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
 
 /* Contact Dropdown Hover */
 .contact-wrapper { position: relative; display: inline-block; }

@@ -5,12 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đối Tác Chiến Lược - Trading Insight</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <link rel="icon" type="image/png" href="images/logopro.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* --- CSS RIÊNG CHO TRANG ĐỐI TÁC --- */
+        
+        .partner-card {
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08) !important;
+            border-color: #ffe0b2; /* Viền cam nhạt khi hover */
+        }
+
+        /* Hộp chứa Logo */
+        .partner-logo-box {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: #f8f9fa; /* Nền xám nhẹ cho logo nổi bật */
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .partner-logo-box img {
+            max-height: 65px;
+            max-width: 80%;
+            object-fit: contain;
+            /* ĐÃ SỬA: Không dùng grayscale nữa để logo luôn có màu */
+            filter: none; 
+            transition: transform 0.3s;
+        }
+
+        .partner-card:hover .partner-logo-box img {
+            transform: scale(1.1); /* Phóng to nhẹ khi hover */
+        }
+        
+        /* Nút Đăng Ký (Màu Cam Gradient) */
+        .btn-partner-reg {
+            /* Gradient Cam chuẩn thương hiệu */
+            background: linear-gradient(135deg, #F26D21 0%, #ff8c42 100%);
+            color: white !important;
+            font-weight: 700;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px; /* Bo tròn */
+            box-shadow: 0 4px 10px rgba(242, 109, 33, 0.2);
+            transition: all 0.3s;
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+
+        .btn-partner-reg:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(242, 109, 33, 0.4);
+            background: linear-gradient(135deg, #d95a10 0%, #F26D21 100%);
+        }
+
+        /* Badge (Nhãn) */
+        .badge-partner {
+            display: inline-block;
+            padding: 6px 14px;
+            background-color: #fff3e0;
+            color: #F26D21;
+            border: 1px solid #ffe0b2;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,7 +110,7 @@
                 </nav>
                 <div class="text-center text-lg-start">
                     <h1 class="fw-bold display-5 mb-2" style="color: var(--brand-navy);">ĐỐI TÁC CHIẾN LƯỢC</h1>
-                    <p class="text-muted fs-5">Mạng lưới hợp tác cùng các sàn giao dịch và quỹ đầu tư hàng đầu</p>
+                    <p class="text-muted fs-5">Hợp tác cùng các sàn giao dịch Top Tier 1 để mang lại lợi ích tốt nhất cho cộng đồng.</p>
                 </div>
             </div>
             <div class="position-absolute top-0 start-0 w-100 h-100" style="background: radial-gradient(circle at 10% 20%, rgba(253, 126, 20, 0.05) 0%, transparent 20%), radial-gradient(circle at 90% 80%, rgba(10, 25, 47, 0.05) 0%, transparent 20%); pointer-events: none;"></div>
@@ -36,60 +118,10 @@
 
         <section class="py-5">
             <div class="container">
-                <div class="row g-4">
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 news-card-hover">
-                            <div class="mb-3 d-flex align-items-center justify-content-center" style="height: 80px;">
-                                <img src="images/binance.jpg" alt="Binance" style="max-height: 60px; max-width: 100%;">
-                            </div>
-                            <h5 class="fw-bold text-navy">Binance</h5>
-                            <p class="text-muted small">Sàn giao dịch tiền mã hóa lớn nhất thế giới về khối lượng giao dịch.</p>
-                            <div class="mt-auto">
-                                <span class="badge bg-orange bg-opacity-10 text-orange border border-orange border-opacity-25 rounded-pill px-3">Top Tier 1</span>
-                            </div>
-                        </div>
+                <div id="partner-grid" class="row g-4">
+                    <div class="col-12 text-center py-5">
+                        <div class="spinner-border text-primary" role="status"></div>
                     </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 news-card-hover">
-                            <div class="mb-3 d-flex align-items-center justify-content-center" style="height: 80px;">
-                                <img src="images/okx.png" alt="OKX" style="max-height: 60px; max-width: 100%;">
-                            </div>
-                            <h5 class="fw-bold text-navy">OKX</h5>
-                            <p class="text-muted small">Nền tảng giao dịch Web3 và Crypto hàng đầu với công nghệ bảo mật cao.</p>
-                            <div class="mt-auto">
-                                <span class="badge bg-orange bg-opacity-10 text-orange border border-orange border-opacity-25 rounded-pill px-3">Đối tác Vàng</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 news-card-hover">
-                            <div class="mb-3 d-flex align-items-center justify-content-center" style="height: 80px;">
-                                <img src="images/bybit.png" alt="Bybit" style="max-height: 60px; max-width: 100%;">
-                            </div>
-                            <h5 class="fw-bold text-navy">Bybit</h5>
-                            <p class="text-muted small">Sàn giao dịch phái sinh (Derivatives) top đầu với thanh khoản sâu.</p>
-                            <div class="mt-auto">
-                                <span class="badge bg-orange bg-opacity-10 text-orange border border-orange border-opacity-25 rounded-pill px-3">Đối tác Bạc</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 news-card-hover">
-                            <div class="mb-3 d-flex align-items-center justify-content-center" style="height: 80px;">
-                                <img src="images/exness.png" alt="Exness" style="max-height: 60px; max-width: 100%;">
-                            </div>
-                            <h5 class="fw-bold text-navy">Exness</h5>
-                            <p class="text-muted small">Nhà môi giới đa tài sản (Forex, Crypto) uy tín nhất thị trường bán lẻ.</p>
-                            <div class="mt-auto">
-                                <span class="badge bg-orange bg-opacity-10 text-orange border border-orange border-opacity-25 rounded-pill px-3">Đối tác Forex</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -99,12 +131,59 @@
     <div id="floating-socials-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/data.js"></script> 
+    
     <script src="js/main.js"></script>
-    <script>
-        loadComponent("header-placeholder", "components/header.html");
-        loadComponent("footer-placeholder", "components/footer.html");
-        loadComponent("floating-socials-placeholder", "components/floating-socials.html");
-    </script>
-</body>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const partnerContainer = document.getElementById('partner-grid');
+            
+            if (partnerContainer && typeof exchangesData !== 'undefined') {
+                partnerContainer.innerHTML = ''; // Xóa loading
+
+                exchangesData.forEach(item => {
+                    // Tự động tạo mô tả dựa trên thông tin sàn
+                    let desc = "Sàn giao dịch uy tín hàng đầu với thanh khoản cao.";
+                    if (item.tag === 'forex') desc = "Nhà môi giới Forex/CFD uy tín, spread thấp, nạp rút nhanh chóng.";
+                    if (item.tag === 'dex') desc = "Nền tảng Web3 phi tập trung, bảo mật cao, không cần KYC.";
+                    if (item.id === 'binance') desc = "Sàn giao dịch tiền mã hóa lớn nhất thế giới về khối lượng giao dịch.";
+                    if (item.id === 'okx') desc = "Nền tảng giao dịch Web3 và Crypto hàng đầu với công nghệ bảo mật cao.";
+                    if (item.id === 'exness') desc = "Nhà môi giới đa tài sản (Forex, Crypto) uy tín nhất thị trường bán lẻ.";
+                    if (item.id === 'bybit') desc = "Sàn giao dịch phái sinh (Derivatives) top đầu với thanh khoản sâu.";
+
+                    // Render HTML Thẻ Card
+                    const html = `
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card border-0 shadow-sm rounded-4 text-center p-4 partner-card">
+                                <div class="partner-logo-box">
+                                    <a href="${item.linkReg}" target="_blank">
+                                        <img src="${item.logo}" alt="${item.name}">
+                                    </a>
+                                </div>
+                                
+                                <h4 class="fw-bold mb-2" style="color: var(--brand-navy);">${item.name}</h4>
+                                
+                                <p class="text-muted small mb-3 flex-grow-1" style="min-height: 40px; line-height: 1.5;">${desc}</p>
+                                
+                                <div class="mt-auto d-flex flex-column gap-2 align-items-center">
+                                    <span class="badge-partner">
+                                        ${item.badge || 'Đối Tác'}
+                                    </span>
+                                    
+                                    <a href="${item.linkReg}" target="_blank" class="btn-partner-reg">
+                                        Đăng Ký Ngay <i class="bi bi-box-arrow-up-right ms-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    partnerContainer.innerHTML += html;
+                });
+            }
+        });
+    </script>
+
+</body>
 </html>
