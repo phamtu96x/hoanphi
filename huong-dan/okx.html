@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hướng Dẫn OKX - Trading Insight</title>
 
-    <link rel="icon" type="image/png" href="../components/images/logopro.png">
+    <link rel="icon" type="image/png" href="../images/logopro.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
@@ -21,113 +21,138 @@
         :root {
             --brand-navy: #0a192f;
             --brand-orange: #fd7e14;
-            /* Màu OKX */
-            --okx-green: #00A980; /* Case 1 */
-            --okx-blue: #4D69FF;  /* Case 2 */
-            --okx-red: #FF5A5F;   /* Case 3 */
+            --okx-green: #00A980;
+            --okx-blue: #4D69FF;
         }
 
         body {
             background-color: #FAFAFA;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Tiêu đề */
+        main {
+            flex: 1;
+            padding-bottom: 50px;
+        }
+
         .guide-title {
             text-align: center; margin-top: 40px; margin-bottom: 10px;
             font-weight: 800; font-size: 2.5rem; color: var(--brand-navy);
         }
-        .guide-title span { color: var(--brand-navy); } /* Giữ màu Navy hoặc Đen theo brand OKX */
-        .guide-subtitle { text-align: center; color: #666; margin-bottom: 50px; }
+        .guide-title span { color: var(--brand-navy); }
+        .guide-subtitle { text-align: center; color: #444; margin-bottom: 40px; font-weight: 500; }
 
-        /* Card Style - ĐÃ FIX LỖI HEIGHT */
+        /* Card Style */
         .guide-card {
-            background: white; border-radius: 16px; padding: 30px;
-            border: 1px solid #EAEAEA; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            margin-bottom: 30px; position: relative;
-            /* Bỏ height: 100% để tránh lỗi layout */
+            background: white; 
+            border-radius: 16px; 
+            padding: 30px;
+            border: 1px solid #EAEAEA; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-bottom: 30px; 
+            position: relative; 
+            height: auto; 
         }
 
         .card-header-title {
-            font-size: 1.2rem; font-weight: 800; margin-bottom: 20px;
+            font-size: 1.3rem; font-weight: 800; margin-bottom: 20px;
             display: flex; align-items: center; gap: 10px;
         }
 
         .step-circle {
-            width: 24px; height: 24px; border-radius: 50%;
+            width: 26px; height: 26px; border-radius: 50%;
             display: inline-flex; align-items: center; justify-content: center;
-            font-weight: bold; color: white; margin-right: 8px; font-size: 13px;
+            font-weight: bold; color: white; margin-right: 10px; font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        /* --- FORM SIMULATION --- */
+        .form-sim {
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #222;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .form-sim-row {
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;
+            padding-bottom: 12px; border-bottom: 1px solid #f0f0f0;
+        }
+        .form-sim-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .form-sim span { font-weight: 600; color: #444; }
+        .form-sim strong { color: #000; font-size: 1.1rem; }
+        .form-sim em { color: #666 !important; font-style: normal; font-size: 0.85rem; }
+
+        /* --- SỬA STYLE BADGE UPLOAD (MỚI) --- */
+        .badge-upload {
+            background-color: #EEF2FF; /* Nền xanh rất nhạt */
+            color: var(--okx-blue); /* Chữ xanh đậm */
+            border: 1px dashed var(--okx-blue); /* Viền nét đứt kiểu upload */
+            font-weight: 600;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            white-space: normal; /* Cho phép xuống dòng trên mobile nếu cần */
+            text-align: right;
         }
 
         /* Copy Box */
         .copy-box {
-            background-color: #F3F5F7; border-radius: 8px; padding: 12px 15px;
+            background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 12px 15px;
             display: flex; justify-content: space-between; align-items: center;
-            margin: 10px 0 20px 0; border: 1px solid #E1E4E8;
+            margin: 10px 0 20px 0;
         }
-        .copy-text { font-weight: 700; font-size: 1.1rem; }
-        .copy-icon { cursor: pointer; color: #999; transition: 0.2s; }
-        .copy-icon:hover { transform: scale(1.1); }
+        .copy-text { font-weight: 700; font-size: 1.2rem; color: #222 !important; }
+        .copy-icon { cursor: pointer; color: #666; transition: 0.2s; font-size: 1.2rem; }
+        .copy-icon:hover { transform: scale(1.1); color: var(--okx-blue); }
 
         /* Benefit Box */
-        .benefit-box { border-radius: 12px; padding: 20px; margin-top: 20px; }
-        .benefit-title { font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-        .benefit-list { list-style: none; padding: 0; margin: 0; font-size: 0.95rem; }
-        .benefit-list li { margin-bottom: 5px; display: flex; align-items: flex-start; gap: 8px; }
+        .benefit-box { border-radius: 12px; padding: 20px; margin-top: 25px; }
+        .benefit-title { font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-size: 1.1rem; }
+        .benefit-list { list-style: none; padding: 0; margin: 0; font-size: 1rem; color: #333; }
+        .benefit-list li { margin-bottom: 8px; display: flex; align-items: flex-start; gap: 10px; }
 
-        /* Form Simulation */
-        .form-sim {
-            background: #F9FAFB; border: 1px solid #eee; padding: 15px;
-            border-radius: 8px; font-size: 0.9rem; color: #555;
+        /* Custom Alert */
+        .custom-alert {
+            padding: 12px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+            display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
         }
-        .form-sim-row {
-            display: flex; justify-content: space-between; margin-bottom: 8px;
-            padding-bottom: 8px; border-bottom: 1px dashed #eee;
-        }
-        .form-sim strong { color: #333; }
+        .alert-blue { background-color: #eef2ff; color: #1a3c8a; border: 1px solid #ced8ff; }
+        .alert-yellow { background-color: #fff8e1; color: #8a6a1a; border: 1px solid #ffeeba; }
 
         /* Buttons */
         .action-btns { display: flex; gap: 10px; margin-top: 25px; flex-wrap: wrap; }
         .btn-zalo {
-            background: #118144; color: white; border: none; padding: 8px 20px;
-            border-radius: 6px; font-weight: 600; text-decoration: none;
-            display: flex; align-items: center; gap: 5px; transition: 0.3s;
+            background: #118144; color: white; border: none; padding: 10px 24px;
+            border-radius: 8px; font-weight: 700; text-decoration: none;
+            display: flex; align-items: center; gap: 8px; transition: 0.3s;
         }
-        .btn-zalo:hover { background-color: #0e6b38; color: white; transform: translateY(-2px); }
+        .btn-zalo:hover { background-color: #0e6b38; color: white; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(17, 129, 68, 0.2); }
         
         .btn-video {
-            background: white; color: #008080; border: 1px solid #008080;
-            padding: 8px 20px; border-radius: 6px; font-weight: 600;
-            text-decoration: none; display: flex; align-items: center; gap: 5px; transition: 0.3s;
+            background: white; color: #008080; border: 2px solid #008080;
+            padding: 10px 24px; border-radius: 8px; font-weight: 700;
+            text-decoration: none; display: flex; align-items: center; gap: 8px; transition: 0.3s;
         }
         .btn-video:hover { background-color: #f0fdfd; }
 
-        /* --- THEME 1: GREEN --- */
-        .theme-green { border-top: 4px solid var(--okx-green); }
+        /* THEME COLORS */
+        .theme-green { border-top: 5px solid var(--okx-green); }
         .theme-green .card-header-title { color: var(--okx-green); }
         .theme-green .step-circle { background-color: var(--okx-green); }
-        .theme-green .copy-text { color: var(--okx-green); }
-        .theme-green .copy-icon:hover { color: var(--okx-green); }
-        .theme-green .benefit-box { background-color: #E6FFFA; border: 1px solid #B7F5E8; }
+        .theme-green .benefit-box { background-color: #f0fdf9; border: 1px solid #ccfbf1; }
         .theme-green .benefit-title, .theme-green .check-icon { color: var(--okx-green); }
 
-        /* --- THEME 2: BLUE --- */
-        .theme-blue { border-top: 4px solid var(--okx-blue); }
+        .theme-blue { border-top: 5px solid var(--okx-blue); }
         .theme-blue .card-header-title { color: var(--okx-blue); }
         .theme-blue .step-circle { background-color: var(--okx-blue); }
-        .theme-blue .benefit-box { background-color: #EEF2FF; border: 1px solid #Dbeafe; }
+        .theme-blue .benefit-box { background-color: #f5f8ff; border: 1px solid #e0eaff; }
         .theme-blue .benefit-title, .theme-blue .check-icon { color: var(--okx-blue); }
 
-        /* --- THEME 3: RED --- */
-        .theme-red { border-top: 4px solid var(--okx-red); }
-        .theme-red .card-header-title { color: var(--okx-red); }
-        .theme-red .step-circle { background-color: var(--okx-red); }
-        .theme-red .copy-text { color: var(--okx-red); }
-        .theme-red .copy-icon:hover { color: var(--okx-red); }
-        .theme-red .benefit-box { background-color: #FFF5F5; border: 1px solid #FED7D7; }
-        .theme-red .benefit-title, .theme-red .check-icon { color: var(--okx-red); }
-
-        main { flex: 1; padding-bottom: 50px; }
     </style>
 </head>
 
@@ -148,7 +173,7 @@
                         <div class="card-header-title">
                             <i class="bi bi-person-plus-fill"></i> Trường Hợp 1: Đăng ký tài khoản OKX mới
                         </div>
-                        <p class="text-muted small">Hướng dẫn đăng ký tài khoản OKX qua Trading Insight để nhận hoàn 50% phí giao dịch vĩnh viễn.</p>
+                        <p class="text-secondary fw-medium">Hướng dẫn đăng ký tài khoản OKX qua Trading Insight để nhận hoàn 50% phí giao dịch vĩnh viễn.</p>
 
                         <div class="mb-2 fw-bold text-dark">
                             <span class="step-circle">1</span> Đăng ký tài khoản OKX bằng SĐT/Email qua mã giới thiệu:
@@ -181,52 +206,68 @@
                         </div>
                     </div>
 
-
-                    <div class="guide-card theme-red">
+                    <div class="guide-card theme-blue">
                         <div class="card-header-title">
-                            <i class="bi bi-trash3-fill"></i> Trường Hợp 2: Đã có TK và có Ref khác
-                        </div>
-                        <p class="text-muted small">Hướng dẫn chuyển ref OKX về Trading Insight để nhận hoàn 50% phí.</p>
-
-                        <div class="d-flex align-items-center gap-1 small fw-bold text-danger mb-3 flex-wrap bg-danger bg-opacity-10 p-2 rounded">
-                            <span>Huỷ lệnh</span> <i class="bi bi-arrow-right"></i>
-                            <span>Chuyển hết tài sản</span> <i class="bi bi-arrow-right"></i>
-                            <span>Xóa TK cũ</span> <i class="bi bi-arrow-right"></i>
-                            <span>Đăng ký mới</span>
+                            <i class="bi bi-pin-angle-fill"></i> Trường Hợp 2: NẾU KH ĐÃ CÓ TK NHƯNG CHƯA ĐK DƯỚI REF KHÁC
                         </div>
 
-                        <div class="mb-1 fw-bold text-dark">
-                            <span class="step-circle">1</span> Mã giới thiệu đăng ký mới:
-                        </div>
-                        <div class="copy-box">
-                            <span class="copy-text">tradinginsight</span>
-                            <i class="bi bi-copy copy-icon" onclick="copyCode('tradinginsight')"></i>
+                        <div class="custom-alert alert-blue mb-4">
+                            <i class="bi bi-info-circle-fill mt-1 fs-5"></i>
+                            <div>
+                                Đối tượng: Tài khoản chưa từng đăng ký qua link ref nào.<br>
+                                Quyền lợi: Nhận đủ Backcom Max (tương đương đăng ký mới).
+                            </div>
                         </div>
 
-                        <div class="mb-2 fw-bold text-dark">
-                            <span class="step-circle">2</span> Thực hiện KYC bằng giấy tờ mới (khác giấy tờ đã dùng cho tài khoản cũ).
+                        <div class="mb-3 fw-bold text-dark">
+                            <span class="step-circle">1</span> Truy cập link và đăng nhập tài khoản OKX:
                         </div>
-                        <div class="mb-2 fw-bold text-dark">
-                            <span class="step-circle">3</span> KYC thành công ➝ Nạp tiền ➝ Bắt đầu giao dịch.
+                        <a href="https://bit.ly/inviterchange-v" target="_blank" class="btn btn-primary w-100 fw-bold py-3 mb-4 shadow-sm" style="background-color: var(--okx-blue); border: none;">
+                            Truy cập Form Chuyển Ref <i class="bi bi-box-arrow-up-right ms-2"></i>
+                        </a>
+
+                        <div class="mb-3 fw-bold text-dark">
+                            <span class="step-circle">2</span> Điền thông tin vào Form như sau:
+                        </div>
+
+                        <div class="form-sim mb-4">
+                            <div class="form-sim-row">
+                                <span>UID OKX của bạn:</span>
+                                <em>(Lấy trong phần Hồ sơ)</em>
+                            </div>
+                            <div class="form-sim-row">
+                                <span>Mã code Trading Insight:</span>
+                                <strong>8831766 <i class="bi bi-copy cursor-pointer text-primary ms-2" onclick="copyCode('8831766')" title="Copy mã"></i></strong>
+                            </div>
+                            <div class="form-sim-row">
+                                <span>Ảnh bằng chứng:</span>
+                                <span class="badge badge-upload">Tải ảnh chụp màn hình giao diện TK lên</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 fw-bold text-dark">
+                            <span class="step-circle">3</span> Gửi thông tin và chờ duyệt (trong 7 ngày).
                         </div>
 
                         <div class="benefit-box">
                             <div class="benefit-title">
-                                <i class="bi bi-gift-fill"></i> Cơ chế hoàn phí
+                                <i class="bi bi-gift-fill"></i> Quyền lợi sau khi chuyển
                             </div>
                             <ul class="benefit-list">
-                                <li><i class="bi bi-check-lg check-icon"></i> <strong>20%</strong> hoàn tự động sau mỗi giao dịch.</li>
-                                <li><i class="bi bi-check-lg check-icon"></i> <strong>30%</strong> hoàn vào ngày cuối tháng qua UID.</li>
+                                <li><i class="bi bi-check-lg check-icon"></i> Nhận đủ Backcom Max như đăng ký mới.</li>
+                                <li><i class="bi bi-check-lg check-icon"></i> Hoàn 20% Spot + 30% Futures.</li>
                             </ul>
                         </div>
 
-                        <div class="alert alert-danger py-2 px-3 small border-0 bg-opacity-10 bg-danger text-danger fw-bold rounded-3 mt-3">
-                            <i class="bi bi-exclamation-octagon-fill me-1"></i> Lưu ý quan trọng: Nên dùng Gmail mới, SĐT mới và giấy tờ KYC khác loại (VD cũ dùng CCCD thì mới dùng Hộ chiếu).
+                        <div class="custom-alert alert-yellow mt-4">
+                            <i class="bi bi-chat-dots-fill mt-1 fs-5"></i>
+                            <div>
+                                Sau khi gửi xong, hãy nhắn tin Zalo cho Shop để cung cấp UID và Gmail OKX để được hỗ trợ check nhanh hơn.
+                            </div>
                         </div>
 
                         <div class="action-btns">
-                            <a href="https://zalo.me/0965657519" target="_blank" class="btn-zalo"><i class="bi bi-telephone-fill"></i> Hỗ trợ Zalo</a>
-                            <a href="#" class="btn-video"><i class="bi bi-telegram me-2 text-primary"></i>Tham Gia Cộng đồng</a>
+                            <a href="https://zalo.me/0965657519" target="_blank" class="btn-zalo"><i class="bi bi-telephone-fill"></i> Nhắn Zalo cho Shop</a>
                         </div>
                     </div>
 
@@ -241,35 +282,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/main.js"></script>
 
-    <script>
-        function loadComponent(placeholderId, filePath) {
-            fetch(filePath)
-                .then(response => {
-                    if (!response.ok) throw new Error(`Lỗi tải: ${filePath}`);
-                    return response.text();
-                })
-                .then(data => {
-                    // SỬA LỖI ĐƯỜNG DẪN ẢNH/LINK
-                    let fixedData = data.replaceAll('src="images/', 'src="../images/');
-                    fixedData = fixedData.replaceAll('href="/"', 'href="../index.html"');
-                    fixedData = fixedData.replaceAll('href="/#', 'href="../index.html#');
-                    fixedData = fixedData.replaceAll('href="css/', 'href="../css/');
-
-                    document.getElementById(placeholderId).innerHTML = fixedData;
-                })
-                .catch(error => console.error('Không thể tải component:', error));
-        }
-
-        // Tải các thành phần
-        loadComponent("header-placeholder", "../components/header.html");
-        loadComponent("footer-placeholder", "../components/footer.html");
-        loadComponent("floating-socials-placeholder", "../components/floating-socials.html");
-
-        function copyCode(text) {
-            navigator.clipboard.writeText(text);
-            alert("Đã copy: " + text);
-        }
-    </script>
 </body>
 
-</html> 
+</html>
